@@ -1,0 +1,1517 @@
+fileFormatVersion: 2
+guid: 06bff8a19ee611d44b22cd362e50eacd
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: emotes_0
+    21300002: emotes_1
+    21300004: emotes_2
+    21300006: emotes_3
+    21300008: emotes_4
+    21300010: emotes_5
+    21300012: emotes_6
+    21300014: emotes_7
+    21300016: emotes_8
+    21300018: emotes_9
+    21300020: emotes_10
+    21300022: emotes_11
+    21300024: emotes_12
+    21300026: emotes_13
+    21300028: emotes_14
+    21300030: emotes_15
+    21300032: emotes_16
+    21300034: emotes_17
+    21300036: emotes_18
+    21300038: emotes_19
+    21300040: emotes_20
+    21300042: emotes_21
+    21300044: emotes_22
+    21300046: emotes_23
+    21300048: emotes_24
+    21300050: emotes_25
+    21300052: emotes_26
+    21300054: emotes_27
+    21300056: emotes_28
+    21300058: emotes_29
+    21300060: emotes_30
+    21300062: emotes_31
+    21300064: emotes_32
+    21300066: emotes_33
+    21300068: emotes_34
+    21300070: emotes_35
+    21300072: emotes_36
+    21300074: emotes_37
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: emotes_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 106
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766f3662598afc54b8f796278650695a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 105
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbcfa3ca7b40d0a44a3475390419b01a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_2
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 105
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da84b1938b879f94f815dd43cc1ec903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 105
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ba3e5127986084eba88e08d612a17a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_4
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 106
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3053aa6c59003f5498b1d14ce873c50a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 105
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf0a43bc2a36cf49aa8de8144cdcef0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_6
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 105
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ef3cfbf545822469a0ec86b45c5152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 85
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78831c81582fd71408f6628990cc533e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 86
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe7a385aec57c47439c2dab3dfc75a4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_9
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 85
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d877ef2d75261b74bb8f3dbdf0a85da5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 85
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857e3fa8bf531dd4da8ec3256fc3d0d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_11
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 85
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 822e6990a25a3e54ca7e6e902a76fde3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_12
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 86
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51c7ca508cca0d4b8a8dcd1a97a21ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_13
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 86
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be444d536859ef24e8e77e59b9dcaa4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266bfb504221bf7439ca8183255962e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_15
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 65
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042ca5a4bc8f57947affa74ac2284659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_16
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 65
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3a073589eac794bb279e7ab0b04bb1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_17
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 63
+        width: 5
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d13a8e225c26147a073f4086428c8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_18
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 66
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09fd4a3992675c46b6ff2761cce4a93
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_19
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 65
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489d20cabd952bb43ae4184ce1da5a50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 45
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cffe0332bffba47980e0bee0eebb61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_21
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 45
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be738ed5ca344ad4299934791fbe380e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_22
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 46
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a055bc3e5092b46bad531166f1d154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 45
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15aeb7036324d98478fca1b3afc980d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_24
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 43
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebbb02ca39edf81448d3e38991db4e3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_25
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 46
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb0abeb6ae0368448deaf67fb8a3ecc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_26
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 25
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9ab90f1a2c3a14093649ad52a6fcdc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 25
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec22c37497a18474c9b62c69812de1b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_28
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 25
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0010b2f3988a843b2b964ab5a0d04f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 26
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbeb4514831766e478d2ff64a87ea21e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_30
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 25
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4a83d8a9cdd1f40a8b1856aeb77174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_31
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 26
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c50414651d39944a9fda96142e76cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_32
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42cbef3284a1144991df38536939ddf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_33
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 5
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a421f5bf46d484ab20d6097323c9a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_34
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 6
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7c1fb7eca5ac09469ad7cbe59ede2d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_35
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 5
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96eec80d41494654ab320774e129ab72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_36
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 5
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7346ef23afe4fd45a88cbbe5634ebcf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emotes_37
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 5
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77a19410e96db245bd81386b02e13dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -67, y: -41}
+      - {x: -68, y: -43}
+      - {x: -68, y: -53}
+      - {x: -66, y: -54}
+      - {x: -58, y: -57}
+      - {x: -54, y: -57}
+      - {x: -52, y: -55}
+      - {x: -52, y: -44}
+      - {x: -53, y: -41}
+    - - {x: -48, y: -55}
+      - {x: -46, y: -57}
+      - {x: -41, y: -57}
+      - {x: -32, y: -54}
+      - {x: -32, y: -43}
+      - {x: -33, y: -41}
+      - {x: -47, y: -41}
+      - {x: -48, y: -43}
+    - - {x: -7, y: -41}
+      - {x: -8, y: -44}
+      - {x: -8, y: -52}
+      - {x: -5, y: -57}
+      - {x: 2, y: -57}
+      - {x: 7, y: -56}
+      - {x: 8, y: -53}
+      - {x: 8, y: -41}
+    - - {x: 13, y: -41}
+      - {x: 12, y: -44}
+      - {x: 12, y: -53}
+      - {x: 18, y: -57}
+      - {x: 27, y: -57}
+      - {x: 28, y: -54}
+      - {x: 28, y: -41}
+    - - {x: 33, y: -41}
+      - {x: 32, y: -44}
+      - {x: 32, y: -51}
+      - {x: 33, y: -56}
+      - {x: 35, y: -57}
+      - {x: 41, y: -57}
+      - {x: 48, y: -52}
+      - {x: 48, y: -42}
+      - {x: 46, y: -41}
+    - - {x: -28, y: -41}
+      - {x: -28, y: -56}
+      - {x: -12, y: -56}
+      - {x: -12, y: -41}
+    - - {x: -67, y: -21}
+      - {x: -68, y: -24}
+      - {x: -68, y: -33}
+      - {x: -62, y: -37}
+      - {x: -53, y: -37}
+      - {x: -52, y: -34}
+      - {x: -52, y: -21}
+    - - {x: -47, y: -21}
+      - {x: -48, y: -24}
+      - {x: -48, y: -32}
+      - {x: -45, y: -37}
+      - {x: -38, y: -37}
+      - {x: -33, y: -36}
+      - {x: -32, y: -33}
+      - {x: -32, y: -21}
+    - - {x: -27, y: -21}
+      - {x: -28, y: -24}
+      - {x: -28, y: -35}
+      - {x: -26, y: -37}
+      - {x: -18, y: -37}
+      - {x: -13, y: -36}
+      - {x: -12, y: -31}
+      - {x: -12, y: -22}
+      - {x: -15, y: -21}
+    - - {x: 27, y: -21}
+      - {x: 14, y: -21}
+      - {x: 12, y: -22}
+      - {x: 12, y: -33}
+      - {x: 18, y: -37}
+      - {x: 25, y: -37}
+      - {x: 28, y: -33}
+      - {x: 28, y: -24}
+    - - {x: -6, y: -21}
+      - {x: -8, y: -22}
+      - {x: -8, y: -32}
+      - {x: -3, y: -36}
+      - {x: 7, y: -36}
+      - {x: 8, y: -31}
+      - {x: 8, y: -21}
+    - - {x: 34, y: -21}
+      - {x: 32, y: -22}
+      - {x: 32, y: -32}
+      - {x: 37, y: -36}
+      - {x: 47, y: -36}
+      - {x: 48, y: -31}
+      - {x: 48, y: -21}
+    - - {x: 23, y: -1}
+      - {x: 17, y: -1}
+      - {x: 14, y: -2}
+      - {x: 14, y: -12}
+      - {x: 15, y: -17}
+      - {x: 18, y: -19}
+      - {x: 22, y: -19}
+      - {x: 26, y: -14}
+      - {x: 26, y: -4}
+    - - {x: -67, y: -1}
+      - {x: -68, y: -4}
+      - {x: -68, y: -13}
+      - {x: -62, y: -17}
+      - {x: -53, y: -17}
+      - {x: -52, y: -14}
+      - {x: -52, y: -1}
+    - - {x: -35, y: -1}
+      - {x: -47, y: -1}
+      - {x: -48, y: -4}
+      - {x: -48, y: -15}
+      - {x: -45, y: -17}
+      - {x: -42, y: -17}
+      - {x: -35, y: -14}
+      - {x: -32, y: -11}
+      - {x: -32, y: -4}
+    - - {x: -7, y: -1}
+      - {x: -8, y: -4}
+      - {x: -8, y: -13}
+      - {x: -4, y: -17}
+      - {x: 6, y: -17}
+      - {x: 8, y: -15}
+      - {x: 8, y: -2}
+      - {x: 6, y: -1}
+    - - {x: -25, y: -1}
+      - {x: -28, y: -4}
+      - {x: -28, y: -12}
+      - {x: -23, y: -16}
+      - {x: -13, y: -16}
+      - {x: -12, y: -11}
+      - {x: -12, y: -2}
+      - {x: -15, y: -1}
+    - - {x: 33, y: -1}
+      - {x: 32, y: -4}
+      - {x: 32, y: -12}
+      - {x: 37, y: -16}
+      - {x: 47, y: -16}
+      - {x: 48, y: -13}
+      - {x: 48, y: -2}
+      - {x: 45, y: -1}
+    - - {x: 2, y: 19}
+      - {x: -4, y: 19}
+      - {x: -5, y: 18}
+      - {x: -5, y: 3}
+      - {x: -1, y: 1}
+      - {x: 1, y: 1}
+      - {x: 3, y: 4}
+      - {x: 4, y: 9}
+      - {x: 4, y: 18}
+    - - {x: -47, y: 19}
+      - {x: -48, y: 16}
+      - {x: -48, y: 8}
+      - {x: -45, y: 3}
+      - {x: -40, y: 3}
+      - {x: -33, y: 4}
+      - {x: -32, y: 7}
+      - {x: -32, y: 19}
+    - - {x: -25, y: 19}
+      - {x: -28, y: 16}
+      - {x: -28, y: 7}
+      - {x: -22, y: 3}
+      - {x: -14, y: 3}
+      - {x: -12, y: 5}
+      - {x: -12, y: 16}
+      - {x: -13, y: 19}
+    - - {x: 32, y: 16}
+      - {x: 32, y: 3}
+      - {x: 48, y: 3}
+      - {x: 48, y: 16}
+      - {x: 45, y: 19}
+      - {x: 35, y: 19}
+    - - {x: -68, y: 19}
+      - {x: -68, y: 4}
+      - {x: -52, y: 4}
+      - {x: -52, y: 19}
+    - - {x: 13, y: 19}
+      - {x: 12, y: 16}
+      - {x: 12, y: 8}
+      - {x: 17, y: 4}
+      - {x: 27, y: 4}
+      - {x: 28, y: 7}
+      - {x: 28, y: 18}
+      - {x: 25, y: 19}
+    - - {x: -65, y: 39}
+      - {x: -68, y: 36}
+      - {x: -68, y: 28}
+      - {x: -65, y: 23}
+      - {x: -60, y: 23}
+      - {x: -53, y: 24}
+      - {x: -52, y: 28}
+      - {x: -52, y: 38}
+      - {x: -55, y: 39}
+    - - {x: -27, y: 39}
+      - {x: -28, y: 37}
+      - {x: -28, y: 27}
+      - {x: -19, y: 23}
+      - {x: -14, y: 23}
+      - {x: -12, y: 25}
+      - {x: -12, y: 36}
+      - {x: -13, y: 39}
+    - - {x: -7, y: 24}
+      - {x: -7, y: 23}
+      - {x: 3, y: 23}
+      - {x: 8, y: 26}
+      - {x: 8, y: 39}
+      - {x: -8, y: 39}
+      - {x: -8, y: 26}
+    - - {x: 13, y: 39}
+      - {x: 12, y: 36}
+      - {x: 12, y: 26}
+      - {x: 18, y: 23}
+      - {x: 28, y: 23}
+      - {x: 28, y: 36}
+      - {x: 27, y: 39}
+    - - {x: -47, y: 39}
+      - {x: -48, y: 36}
+      - {x: -48, y: 28}
+      - {x: -43, y: 24}
+      - {x: -33, y: 24}
+      - {x: -32, y: 27}
+      - {x: -32, y: 38}
+      - {x: -35, y: 39}
+    - - {x: 33, y: 39}
+      - {x: 32, y: 36}
+      - {x: 32, y: 28}
+      - {x: 37, y: 24}
+      - {x: 47, y: 24}
+      - {x: 48, y: 27}
+      - {x: 48, y: 38}
+      - {x: 45, y: 39}
+    - - {x: 52, y: 29}
+      - {x: 56, y: 24}
+      - {x: 64, y: 24}
+      - {x: 68, y: 26}
+      - {x: 68, y: 38}
+      - {x: 67, y: 39}
+      - {x: 55, y: 39}
+      - {x: 52, y: 36}
+    - - {x: -47, y: 59}
+      - {x: -48, y: 57}
+      - {x: -48, y: 47}
+      - {x: -39, y: 43}
+      - {x: -34, y: 43}
+      - {x: -32, y: 45}
+      - {x: -32, y: 56}
+      - {x: -33, y: 59}
+    - - {x: -27, y: 59}
+      - {x: -28, y: 56}
+      - {x: -28, y: 48}
+      - {x: -25, y: 43}
+      - {x: -20, y: 43}
+      - {x: -13, y: 44}
+      - {x: -12, y: 47}
+      - {x: -12, y: 59}
+    - - {x: -7, y: 44}
+      - {x: -7, y: 43}
+      - {x: 3, y: 43}
+      - {x: 8, y: 46}
+      - {x: 8, y: 59}
+      - {x: -8, y: 59}
+      - {x: -8, y: 46}
+    - - {x: 33, y: 59}
+      - {x: 32, y: 56}
+      - {x: 32, y: 46}
+      - {x: 38, y: 43}
+      - {x: 48, y: 43}
+      - {x: 48, y: 56}
+      - {x: 47, y: 59}
+    - - {x: 67, y: 59}
+      - {x: 52, y: 59}
+      - {x: 52, y: 47}
+      - {x: 53, y: 44}
+      - {x: 58, y: 43}
+      - {x: 66, y: 43}
+      - {x: 68, y: 47}
+      - {x: 68, y: 56}
+    - - {x: -68, y: 59}
+      - {x: -68, y: 44}
+      - {x: -52, y: 44}
+      - {x: -52, y: 59}
+    - - {x: 13, y: 59}
+      - {x: 12, y: 56}
+      - {x: 12, y: 48}
+      - {x: 17, y: 44}
+      - {x: 27, y: 44}
+      - {x: 28, y: 47}
+      - {x: 28, y: 58}
+      - {x: 25, y: 59}
+    physicsShape:
+    - - {x: -67, y: -41}
+      - {x: -68, y: -43}
+      - {x: -68, y: -53}
+      - {x: -66, y: -54}
+      - {x: -58, y: -57}
+      - {x: -54, y: -57}
+      - {x: -52, y: -55}
+      - {x: -52, y: -44}
+      - {x: -53, y: -41}
+    - - {x: -48, y: -55}
+      - {x: -46, y: -57}
+      - {x: -41, y: -57}
+      - {x: -32, y: -54}
+      - {x: -32, y: -43}
+      - {x: -33, y: -41}
+      - {x: -47, y: -41}
+      - {x: -48, y: -43}
+    - - {x: -7, y: -41}
+      - {x: -8, y: -44}
+      - {x: -8, y: -52}
+      - {x: -5, y: -57}
+      - {x: 2, y: -57}
+      - {x: 7, y: -56}
+      - {x: 8, y: -53}
+      - {x: 8, y: -41}
+    - - {x: 13, y: -41}
+      - {x: 12, y: -44}
+      - {x: 12, y: -53}
+      - {x: 18, y: -57}
+      - {x: 27, y: -57}
+      - {x: 28, y: -54}
+      - {x: 28, y: -41}
+    - - {x: 33, y: -41}
+      - {x: 32, y: -44}
+      - {x: 32, y: -51}
+      - {x: 33, y: -56}
+      - {x: 35, y: -57}
+      - {x: 41, y: -57}
+      - {x: 48, y: -52}
+      - {x: 48, y: -42}
+      - {x: 46, y: -41}
+    - - {x: -28, y: -41}
+      - {x: -28, y: -56}
+      - {x: -12, y: -56}
+      - {x: -12, y: -41}
+    - - {x: -67, y: -21}
+      - {x: -68, y: -24}
+      - {x: -68, y: -33}
+      - {x: -62, y: -37}
+      - {x: -53, y: -37}
+      - {x: -52, y: -34}
+      - {x: -52, y: -21}
+    - - {x: -47, y: -21}
+      - {x: -48, y: -24}
+      - {x: -48, y: -32}
+      - {x: -45, y: -37}
+      - {x: -38, y: -37}
+      - {x: -33, y: -36}
+      - {x: -32, y: -33}
+      - {x: -32, y: -21}
+    - - {x: -27, y: -21}
+      - {x: -28, y: -24}
+      - {x: -28, y: -35}
+      - {x: -26, y: -37}
+      - {x: -18, y: -37}
+      - {x: -13, y: -36}
+      - {x: -12, y: -31}
+      - {x: -12, y: -22}
+      - {x: -15, y: -21}
+    - - {x: 27, y: -21}
+      - {x: 14, y: -21}
+      - {x: 12, y: -22}
+      - {x: 12, y: -33}
+      - {x: 18, y: -37}
+      - {x: 25, y: -37}
+      - {x: 28, y: -33}
+      - {x: 28, y: -24}
+    - - {x: -6, y: -21}
+      - {x: -8, y: -22}
+      - {x: -8, y: -32}
+      - {x: -3, y: -36}
+      - {x: 7, y: -36}
+      - {x: 8, y: -31}
+      - {x: 8, y: -21}
+    - - {x: 34, y: -21}
+      - {x: 32, y: -22}
+      - {x: 32, y: -32}
+      - {x: 37, y: -36}
+      - {x: 47, y: -36}
+      - {x: 48, y: -31}
+      - {x: 48, y: -21}
+    - - {x: 23, y: -1}
+      - {x: 17, y: -1}
+      - {x: 14, y: -2}
+      - {x: 14, y: -12}
+      - {x: 15, y: -17}
+      - {x: 18, y: -19}
+      - {x: 22, y: -19}
+      - {x: 26, y: -14}
+      - {x: 26, y: -4}
+    - - {x: -67, y: -1}
+      - {x: -68, y: -4}
+      - {x: -68, y: -13}
+      - {x: -62, y: -17}
+      - {x: -53, y: -17}
+      - {x: -52, y: -14}
+      - {x: -52, y: -1}
+    - - {x: -35, y: -1}
+      - {x: -47, y: -1}
+      - {x: -48, y: -4}
+      - {x: -48, y: -15}
+      - {x: -45, y: -17}
+      - {x: -42, y: -17}
+      - {x: -35, y: -14}
+      - {x: -32, y: -11}
+      - {x: -32, y: -4}
+    - - {x: -7, y: -1}
+      - {x: -8, y: -4}
+      - {x: -8, y: -13}
+      - {x: -4, y: -17}
+      - {x: 6, y: -17}
+      - {x: 8, y: -15}
+      - {x: 8, y: -2}
+      - {x: 6, y: -1}
+    - - {x: -25, y: -1}
+      - {x: -28, y: -4}
+      - {x: -28, y: -12}
+      - {x: -23, y: -16}
+      - {x: -13, y: -16}
+      - {x: -12, y: -11}
+      - {x: -12, y: -2}
+      - {x: -15, y: -1}
+    - - {x: 33, y: -1}
+      - {x: 32, y: -4}
+      - {x: 32, y: -12}
+      - {x: 37, y: -16}
+      - {x: 47, y: -16}
+      - {x: 48, y: -13}
+      - {x: 48, y: -2}
+      - {x: 45, y: -1}
+    - - {x: 2, y: 19}
+      - {x: -4, y: 19}
+      - {x: -5, y: 18}
+      - {x: -5, y: 3}
+      - {x: -1, y: 1}
+      - {x: 1, y: 1}
+      - {x: 3, y: 4}
+      - {x: 4, y: 9}
+      - {x: 4, y: 18}
+    - - {x: -47, y: 19}
+      - {x: -48, y: 16}
+      - {x: -48, y: 8}
+      - {x: -45, y: 3}
+      - {x: -40, y: 3}
+      - {x: -33, y: 4}
+      - {x: -32, y: 7}
+      - {x: -32, y: 19}
+    - - {x: -25, y: 19}
+      - {x: -28, y: 16}
+      - {x: -28, y: 7}
+      - {x: -22, y: 3}
+      - {x: -14, y: 3}
+      - {x: -12, y: 5}
+      - {x: -12, y: 16}
+      - {x: -13, y: 19}
+    - - {x: 32, y: 16}
+      - {x: 32, y: 3}
+      - {x: 48, y: 3}
+      - {x: 48, y: 16}
+      - {x: 45, y: 19}
+      - {x: 35, y: 19}
+    - - {x: -68, y: 19}
+      - {x: -68, y: 4}
+      - {x: -52, y: 4}
+      - {x: -52, y: 19}
+    - - {x: 13, y: 19}
+      - {x: 12, y: 16}
+      - {x: 12, y: 8}
+      - {x: 17, y: 4}
+      - {x: 27, y: 4}
+      - {x: 28, y: 7}
+      - {x: 28, y: 18}
+      - {x: 25, y: 19}
+    - - {x: -65, y: 39}
+      - {x: -68, y: 36}
+      - {x: -68, y: 28}
+      - {x: -65, y: 23}
+      - {x: -60, y: 23}
+      - {x: -53, y: 24}
+      - {x: -52, y: 28}
+      - {x: -52, y: 38}
+      - {x: -55, y: 39}
+    - - {x: -27, y: 39}
+      - {x: -28, y: 37}
+      - {x: -28, y: 27}
+      - {x: -19, y: 23}
+      - {x: -14, y: 23}
+      - {x: -12, y: 25}
+      - {x: -12, y: 36}
+      - {x: -13, y: 39}
+    - - {x: -7, y: 24}
+      - {x: -7, y: 23}
+      - {x: 3, y: 23}
+      - {x: 8, y: 26}
+      - {x: 8, y: 39}
+      - {x: -8, y: 39}
+      - {x: -8, y: 26}
+    - - {x: 13, y: 39}
+      - {x: 12, y: 36}
+      - {x: 12, y: 26}
+      - {x: 18, y: 23}
+      - {x: 28, y: 23}
+      - {x: 28, y: 36}
+      - {x: 27, y: 39}
+    - - {x: -47, y: 39}
+      - {x: -48, y: 36}
+      - {x: -48, y: 28}
+      - {x: -43, y: 24}
+      - {x: -33, y: 24}
+      - {x: -32, y: 27}
+      - {x: -32, y: 38}
+      - {x: -35, y: 39}
+    - - {x: 33, y: 39}
+      - {x: 32, y: 36}
+      - {x: 32, y: 28}
+      - {x: 37, y: 24}
+      - {x: 47, y: 24}
+      - {x: 48, y: 27}
+      - {x: 48, y: 38}
+      - {x: 45, y: 39}
+    - - {x: 52, y: 29}
+      - {x: 56, y: 24}
+      - {x: 64, y: 24}
+      - {x: 68, y: 26}
+      - {x: 68, y: 38}
+      - {x: 67, y: 39}
+      - {x: 55, y: 39}
+      - {x: 52, y: 36}
+    - - {x: -47, y: 59}
+      - {x: -48, y: 57}
+      - {x: -48, y: 47}
+      - {x: -39, y: 43}
+      - {x: -34, y: 43}
+      - {x: -32, y: 45}
+      - {x: -32, y: 56}
+      - {x: -33, y: 59}
+    - - {x: -27, y: 59}
+      - {x: -28, y: 56}
+      - {x: -28, y: 48}
+      - {x: -25, y: 43}
+      - {x: -20, y: 43}
+      - {x: -13, y: 44}
+      - {x: -12, y: 47}
+      - {x: -12, y: 59}
+    - - {x: -7, y: 44}
+      - {x: -7, y: 43}
+      - {x: 3, y: 43}
+      - {x: 8, y: 46}
+      - {x: 8, y: 59}
+      - {x: -8, y: 59}
+      - {x: -8, y: 46}
+    - - {x: 33, y: 59}
+      - {x: 32, y: 56}
+      - {x: 32, y: 46}
+      - {x: 38, y: 43}
+      - {x: 48, y: 43}
+      - {x: 48, y: 56}
+      - {x: 47, y: 59}
+    - - {x: 67, y: 59}
+      - {x: 52, y: 59}
+      - {x: 52, y: 47}
+      - {x: 53, y: 44}
+      - {x: 58, y: 43}
+      - {x: 66, y: 43}
+      - {x: 68, y: 47}
+      - {x: 68, y: 56}
+    - - {x: -68, y: 59}
+      - {x: -68, y: 44}
+      - {x: -52, y: 44}
+      - {x: -52, y: 59}
+    - - {x: 13, y: 59}
+      - {x: 12, y: 56}
+      - {x: 12, y: 48}
+      - {x: 17, y: 44}
+      - {x: 27, y: 44}
+      - {x: 28, y: 47}
+      - {x: 28, y: 58}
+      - {x: 25, y: 59}
+    bones: []
+    spriteID: b907dc657c7e90f4bb3bb5658f900d55
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
