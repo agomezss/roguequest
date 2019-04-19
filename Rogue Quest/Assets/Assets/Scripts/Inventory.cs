@@ -12,7 +12,6 @@ public class Inventory : MonoBehaviour
 
     public Collectible MainWeapon;
     public Collectible MainShield;
-    public Collectible MainRune;
     public Collectible MainRing;
     public Collectible MainClothes;
 

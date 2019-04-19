@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public BehaviourState state;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         anims = GetComponent<AnimedTile>();
         rb = GetComponent<Rigidbody2D>();
