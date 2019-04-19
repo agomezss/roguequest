@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Stats = GetComponent<Stats>();
         anims = GetComponent<AnimedTile>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
@@ -28,6 +29,26 @@ public class Player : MonoBehaviour
 
     private void InputDetection()
     {
+        var horizontal = SimpleInput.GetAxis("Horizontal");
 
+        if (horizontal < 0f)
+        {
+            state.MoveLeft();
+        }
+        else if (horizontal > 0f)
+        {
+            state.MoveRight();
+        }
+        else if (horizontal == 0f)
+        {
+            state.GetIdle();
+        }
+
+        var vertical = SimpleInput.GetAxis("Vertical");
+
+        if (SimpleInput.GetButton("Jump") || vertical > 0f)
+        {
+            state.MoveUp();
+        }
     }
 }

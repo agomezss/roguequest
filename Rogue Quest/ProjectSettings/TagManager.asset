@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GroundWall
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 3660798939
+    locked: 0
+  - name: BG2
+    uniqueID: 3432601931
+    locked: 0
+  - name: WALL
+    uniqueID: 2473387445
+    locked: 0
+  - name: PLAYER
+    uniqueID: 2189142515
     locked: 0

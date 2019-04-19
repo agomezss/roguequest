@@ -17,37 +17,37 @@ public class Camera : MonoBehaviour
 
     public void WaterEffect()
     {
-        
+
     }
 
     public void PoisonEffect()
     {
-        
+
     }
 
     public void NearDeathEffect()
     {
-        
+
     }
 
     public void HealLifeEffect()
     {
-        
+
     }
 
     public void HealManaEffect()
     {
-        
+
     }
 
     public void SlowDownEffect()
     {
-        
+
     }
 
     public void ThunderEffect()
     {
-        
+
     }
 
     public void GetDark()
@@ -57,7 +57,7 @@ public class Camera : MonoBehaviour
 
     public void GetNormal()
     {
-        
+
     }
 
     public void Animate()
@@ -73,12 +73,13 @@ public class Camera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var newPosition = new Vector3(Target.transform.position.x, Target.transform.position.y, -100);
+        transform.position = Vector3.Lerp(transform.position, newPosition, 0.98f);
     }
 }
