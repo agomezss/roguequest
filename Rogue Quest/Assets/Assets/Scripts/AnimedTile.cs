@@ -16,7 +16,6 @@ public class AnimedTile : MonoBehaviour
     public bool canAware;
     public bool canDefend;
 
-
     public Sprite[] Idle;
     public float IdleSpeed;
     public bool IdleRepeat = true;

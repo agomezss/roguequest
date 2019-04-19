@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Lava : MonoBehaviour
 {
+    public float DamagePerSecondAferResistance = 30f;
+
     // Start is called before the first frame update
     void Start()
     {

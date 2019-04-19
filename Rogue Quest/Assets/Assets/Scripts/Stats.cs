@@ -5,15 +5,15 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     public string Name;
-    
+
     public float Life;
     private float TemporaryLife;
     private float TemporaryLifeDuration;
 
-     public float RecoverLifeSpeed;
-     private float TemporaryRecoverLifeSpeed;
+    public float RecoverLifeSpeed;
+    private float TemporaryRecoverLifeSpeed;
     private float TemporaryRecoverLifeSpeedDuration;
-    
+
     public float Mana;
     private float TemporaryMana;
     private float TemporaryManaDuration;
@@ -21,7 +21,7 @@ public class Stats : MonoBehaviour
     public float RecoverManaSpeed;
     private float TemporaryRecoverManaSpeed;
     private float TemporaryRecoverManaSpeedDuration;
-    
+
     public float Speed;
     private float TemporarySpeed;
     private float TemporarySpeedDuration;
@@ -81,12 +81,12 @@ public class Stats : MonoBehaviour
     {
         return RecoverManaSpeed + TemporaryRecoverManaSpeed;
     }
-    
+
     public float GetSpeed()
     {
         return Speed + TemporarySpeed;
     }
-    
+
     public float GetJumpSpeed()
     {
         return JumpSpeed + TemporaryJumpSpeed;
@@ -96,7 +96,7 @@ public class Stats : MonoBehaviour
     {
         return ClimbSpeed + TemporaryClimbSpeed;
     }
-    
+
     public float GetStrength()
     {
         return Strength + TemporaryStrength;
@@ -106,7 +106,7 @@ public class Stats : MonoBehaviour
     {
         return Defense + TemporaryDefense;
     }
-    
+
     public float GetIntelligence()
     {
         return Intelligence + TemporaryIntelligence;
@@ -121,12 +121,12 @@ public class Stats : MonoBehaviour
     {
         return LavaResistance + TemporaryLavaResistance;
     }
-    
+
     public float GetPoisonResistance()
     {
         return PoisonResistance + TemporaryPoisonResistance;
     }
-    
+
     public float GetWaterResistance()
     {
         return WaterResistance + TemporaryWaterResistance;
@@ -135,116 +135,151 @@ public class Stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateDurations();
+    }
+
+    void UpdateDurations()
+    {
         if (TemporaryLifeDuration > 0)
         {
             TemporaryLifeDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryLife = 0;
         }
 
-         if (TemporaryRecoverLifeSpeedDuration > 0)
+        if (TemporaryRecoverLifeSpeedDuration > 0)
         {
             TemporaryRecoverLifeSpeedDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryRecoverLifeSpeed = 0;
         }
 
-         if (TemporaryManaDuration > 0)
+        if (TemporaryManaDuration > 0)
         {
             TemporaryManaDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryMana = 0;
         }
 
-         if (TemporaryRecoverManaSpeedDuration > 0)
+        if (TemporaryRecoverManaSpeedDuration > 0)
         {
             TemporaryRecoverManaSpeedDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryRecoverManaSpeed = 0;
         }
 
-         if (TemporarySpeedDuration > 0)
+        if (TemporarySpeedDuration > 0)
         {
             TemporarySpeedDuration--;
-        }else {
+        }
+        else
+        {
             TemporarySpeed = 0;
         }
 
-         if (TemporaryJumpSpeedDuration > 0)
+        if (TemporaryJumpSpeedDuration > 0)
         {
             TemporaryJumpSpeedDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryJumpSpeed = 0;
         }
 
-         if (TemporaryLifeDuration > 0)
+        if (TemporaryLifeDuration > 0)
         {
             TemporaryLifeDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryLife = 0;
         }
 
-         if (TemporaryClimbSpeedDuration > 0)
+        if (TemporaryClimbSpeedDuration > 0)
         {
             TemporaryClimbSpeedDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryClimbSpeed = 0;
         }
 
-         if (TemporaryStrengthDuration > 0)
+        if (TemporaryStrengthDuration > 0)
         {
             TemporaryStrengthDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryStrength = 0;
         }
 
-         if (TemporaryDefenseDuration > 0)
+        if (TemporaryDefenseDuration > 0)
         {
             TemporaryDefenseDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryDefense = 0;
         }
 
-         if (TemporaryIntelligenceDuration > 0)
+        if (TemporaryIntelligenceDuration > 0)
         {
             TemporaryIntelligenceDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryIntelligence = 0;
         }
 
-         if (TemporaryIntelligenceResistanceDuration > 0)
+        if (TemporaryIntelligenceResistanceDuration > 0)
         {
             TemporaryIntelligenceResistanceDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryIntelligenceResistance = 0;
         }
-        
-         if (TemporaryLavaResistanceDuration > 0)
+
+        if (TemporaryLavaResistanceDuration > 0)
         {
             TemporaryLavaResistanceDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryLavaResistance = 0;
         }
-        
-         if (TemporaryPoisonResistanceDuration > 0)
+
+        if (TemporaryPoisonResistanceDuration > 0)
         {
             TemporaryPoisonResistanceDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryPoisonResistance = 0;
         }
-        
-         if (TemporaryWaterResistanceDuration > 0)
+
+        if (TemporaryWaterResistanceDuration > 0)
         {
             TemporaryWaterResistanceDuration--;
-        }else {
+        }
+        else
+        {
             TemporaryWaterResistance = 0;
         }
-        
+
     }
 }
