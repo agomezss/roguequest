@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Stats Stats;
-    public Inventory Inventory;
+    //public Stats Stats;
+    //public Inventory Inventory;
 
     // Start is called before the first frame update
     void Start()

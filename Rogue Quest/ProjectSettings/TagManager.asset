@@ -14,10 +14,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - BG
+  - WALL
+  - OBJ
+  - PLAYER
   - 
   - 
   - 
@@ -45,11 +45,11 @@ TagManager:
   - name: BG
     uniqueID: 3660798939
     locked: 0
-  - name: BG2
-    uniqueID: 3432601931
-    locked: 0
   - name: WALL
     uniqueID: 2473387445
+    locked: 0
+  - name: OBJ
+    uniqueID: 3791230711
     locked: 0
   - name: PLAYER
     uniqueID: 2189142515

@@ -8,6 +8,7 @@ public class BehaviourState : MonoBehaviour
     private Stats Stats;
     private Inventory Inventory;
     private Rigidbody2D rb2d;
+    private BoxCollider2D col;
 
     public bool IsIdle;
     public bool IsWalking;
@@ -18,17 +19,17 @@ public class BehaviourState : MonoBehaviour
     public bool IsClimbing;
     public bool IsFlying;
     public bool IsSwimming;
-
+    public bool IsFalling;
     public bool IsDead;
     public bool IsGrounded;
-    private bool IsShielded;
-    private bool IsUsingWeapon;
+    public string LookingObject;
+    public bool IsShielded;
+    public bool IsUsingWeapon;
+    public bool IsLaddered;
+    public bool IsUnderLiquid;
+
     private float LastWeaponUsedTime = 0f;
     private float RestrictWeaponUsagePerSecond = 0.4f;
-
-    private bool IsLaddered;
-    private bool IsUnderLiquid;
-    public bool IsFalling;
 
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class BehaviourState : MonoBehaviour
         Stats = GetComponent<Stats>();
         Inventory = GetComponent<Inventory>();
         rb2d = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
     }
 
     public void GetIdle()
@@ -71,7 +73,7 @@ public class BehaviourState : MonoBehaviour
 
         // if (h * rb2d.velocity.x < speed)
         //     rb2d.AddForce(Vector2.up * h * speed);
-        IsWalking = true;
+        IsFlying = true;
     }
 
     public void FlyDown()
@@ -86,11 +88,13 @@ public class BehaviourState : MonoBehaviour
         // if (h * rb2d.velocity.x < speed)
         //     rb2d.AddForce(Vector2.up * h * speed);
 
-        IsWalking = true;
+        IsFlying = true;
     }
 
     public void MoveLeft()
     {
+        transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
         var h = -1;
         var speed = Stats.GetSpeed();
 
@@ -107,6 +111,8 @@ public class BehaviourState : MonoBehaviour
 
     public void MoveRight()
     {
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
         var h = 1;
         var speed = Stats.GetSpeed();
 
@@ -174,26 +180,35 @@ public class BehaviourState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateLookingObject();
         CheckGrounded();
+    }
+
+    void UpdateLookingObject()
+    {
+        int mask = 1 << LayerMask.NameToLayer("WALL");
+
+        var isEnemy = GetComponent<Enemy>() != null;
+        if(isEnemy) mask = mask | (1 << LayerMask.NameToLayer("PLAYER"));
+        else mask = mask | (1 << LayerMask.NameToLayer("OBJ"));
+
+        LookingObject = Helper.RaycastHorizontal(transform, col, mask);
     }
 
     void CheckGrounded()
     {
-        //Debug.DrawLine(new Vector2(transform.position.x, transform.position.y - 0.51f), new Vector2(transform.position.x, transform.position.y - 0.55f));
-        var hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.51f), new Vector2(transform.position.x, transform.position.y - 0.55f));
+        var groundTag = Helper.RaycastDown(transform, col);
 
-        if (hit != null && hit.transform != null)
+        if (groundTag == "GroundWall" && rb2d.velocity.y == 0f)
         {
-            if (hit.transform.tag == "GroundWall" && rb2d.velocity.y == 0f)
-            {
-                IsGrounded = true;
-                IsJumping = false;
-                IsFalling = false;
-            }
-            else
-            {
-                IsFalling = true;
-            }
+            IsGrounded = true;
+            IsJumping = false;
+            IsFalling = false;
+            IsFlying = false;
+        }
+        else
+        {
+            IsFalling = true;
         }
     }
 

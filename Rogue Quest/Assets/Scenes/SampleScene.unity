@@ -355,8 +355,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815757758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 37.5, y: -3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 37.5, y: -4.5, z: 5}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 796252410}
   m_RootOrder: 0
@@ -430,9 +430,14 @@ MonoBehaviour:
   IsClimbing: 0
   IsFlying: 0
   IsSwimming: 0
+  IsFalling: 0
   IsDead: 0
   IsGrounded: 0
-  IsFalling: 0
+  LookingObject: 
+  IsShielded: 0
+  IsUsingWeapon: 0
+  IsLaddered: 0
+  IsUnderLiquid: 0
 --- !u!114 &815757762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,9 +473,9 @@ MonoBehaviour:
   RecoverLifeSpeed: 0
   Mana: 100
   RecoverManaSpeed: 0
-  Speed: 6
-  JumpSpeed: 8
-  ClimbSpeed: 6
+  Speed: 4
+  JumpSpeed: 2.2
+  ClimbSpeed: 3
   Strength: 10
   Defense: 10
   Intelligence: 10
@@ -489,8 +494,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.40529776
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -512,7 +517,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007860184, y: -0.023581386}
+  m_Offset: {x: -0.0052394867, y: -0.023581386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -523,7 +528,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65938187, y: 0.9528372}
+  m_Size: {x: 0.66462326, y: 0.9528372}
   m_EdgeRadius: 0
 --- !u!1 &1029167656
 GameObject:
@@ -2442,7 +2447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129548657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2089588780}
