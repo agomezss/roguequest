@@ -28,6 +28,7 @@ public class BehaviourState : MonoBehaviour
     public bool IsUnderLiquid;
 
     private float LastWeaponUsedTime = 0f;
+    private float LastJump = 0f;
     private float RestrictWeaponUsagePerSecond = 0.4f;
 
     void Awake()
@@ -50,7 +51,8 @@ public class BehaviourState : MonoBehaviour
         IsJumping = false;
         IsSwimming = false;
 
-        anims.Play("idle");
+        if(Time.time - LastJump > 1f)
+            anims.Play("idle");
     }
 
     public void GetAware()
@@ -150,6 +152,8 @@ public class BehaviourState : MonoBehaviour
         {
             if (!IsGrounded || IsJumping || Mathf.Abs(rb2d.velocity.y) > 0.1f) return;
 
+            LastJump = Time.time;
+
             var jumpSpeed = Stats.GetJumpSpeed();
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             IsJumping = true;
@@ -233,7 +237,6 @@ public class BehaviourState : MonoBehaviour
         else if (groundTag == "Ladder")
         {
             rb2d.gravityScale = 0f;
-            IsLaddered = true;
         }
         else
         {

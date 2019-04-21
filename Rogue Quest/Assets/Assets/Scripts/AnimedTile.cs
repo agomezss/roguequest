@@ -48,7 +48,7 @@ public class AnimedTile : MonoBehaviour
     public float DefendingSpeed = 1f;
     public bool DefendingRepeat = true;
 
-    private string currentAnimation;
+    public string currentAnimation;
     private string nextAnimation;
     private int currentFrame;
     private float currentSpeed;
