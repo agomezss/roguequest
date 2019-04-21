@@ -77,7 +77,7 @@ public class BehaviourState : MonoBehaviour
 
         // if (h * rb2d.velocity.x < speed)
         //     rb2d.AddForce(Vector2.up * h * speed);
-        
+
         IsFlying = true;
         IsGrounded = false;
     }
@@ -245,12 +245,10 @@ public class BehaviourState : MonoBehaviour
     {
         var speed = Stats.GetClimbSpeed();
 
-        if (Mathf.Abs(rb2d.velocity.x) > speed) // MaxSpeed
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y); // MaxSpeed
+        if (Mathf.Abs(rb2d.velocity.x) > speed)
+            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y);
     }
 
-
-    // If Collides with floor and jumpforce = 0 then IsGrounded = true
     void OnTriggerStay2D(Collider2D other)
     {
         if (other == null || other.gameObject.layer == LayerMask.NameToLayer("WALL")) return;
