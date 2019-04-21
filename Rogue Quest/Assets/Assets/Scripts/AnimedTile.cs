@@ -35,6 +35,7 @@ public class AnimedTile : MonoBehaviour
     public Sprite[] Climbing;
     public float ClimbingSpeed = 1f;
     public bool ClimbingRepeat = true;
+    public bool ClimbAlternateScale = true;
 
     public Sprite[] Dead;
     public float DeadSpeed = 1f;
@@ -59,6 +60,7 @@ public class AnimedTile : MonoBehaviour
     private float nextAnimationTime = 0f;
     private float nextAnimationTimePeriod = 0.01f;
     private float totalFramesPerSprite;
+    private bool currentAlternateScale = false;
 
     public void Play(string animation, string animationFinish = null)
     {
@@ -83,7 +85,7 @@ public class AnimedTile : MonoBehaviour
                     break;
                 case "climb":
                     if (!canClimb) return;
-                    Animate(Climbing, ClimbingSpeed, ClimbingRepeat);
+                    Animate(Climbing, ClimbingSpeed, ClimbingRepeat, ClimbAlternateScale);
                     break;
                 case "dead":
                     if (!canDead) return;
@@ -111,13 +113,14 @@ public class AnimedTile : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
     }
 
-    private void Animate(Sprite[] sprites, float speed, bool repeat)
+    private void Animate(Sprite[] sprites, float speed, bool repeat, bool alternateScale = false)
     {
         currentFrame = 0;
         currentSpritePlaying = 0;
         currentSprites = sprites;
         currentSpeed = speed;
         currentRepeat = repeat;
+        currentAlternateScale = alternateScale;
     }
 
     void Update()
@@ -144,10 +147,13 @@ public class AnimedTile : MonoBehaviour
         {
             currentSpriteFrame = 0;
 
+            if(currentAlternateScale)
+                transform.localScale = new Vector2(-1*transform.localScale.x, transform.localScale.y);
+
             if(currentSprites.Length < 2) return;
 
             currentSpritePlaying++;
-
+            
             if (currentSpritePlaying + 1 > currentSprites.Length)
                 currentSpritePlaying = 0;
         }
