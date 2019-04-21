@@ -41,7 +41,7 @@ public class BehaviourState : MonoBehaviour
 
     public void GetIdle()
     {
-        rb2d.velocity = Vector2.Lerp(rb2d.velocity, new Vector2(0f, rb2d.velocity.y), 0.01f * Time.deltaTime);
+        rb2d.velocity = Vector2.Lerp(rb2d.velocity, new Vector2(0f, rb2d.velocity.y), 0.5f);
 
         IsIdle = true;
         IsWalking = false;
