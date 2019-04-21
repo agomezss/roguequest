@@ -1091,7 +1091,7 @@ MonoBehaviour:
   Walking:
   - {fileID: 21300004, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
   - {fileID: 21300002, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
-  WalkingSpeed: 0
+  WalkingSpeed: 1.5
   WalkingRepeat: 1
   Attacking:
   - {fileID: 21300008, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}

@@ -2,81 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CollectibleType
-{
-    Treasure = 0,
-    Potion = 1,
-    Food = 2,
-    Equipable = 3,
-    Unique = 5,
-}
-
-public enum EquipableType
-{
-    Weapon = 1,
-    Shield = 2,
-    Rune = 3,
-    Ring = 4,
-    Clothe = 5,
-    Other = 6
-}
-
-public enum WeaponType
-{
-    Shield = 0,
-    Sword,
-    Axe,
-    Bow,
-    Arrow,
-    Crossbow,
-    Hammer,
-    Whip,
-    Spear,
-    Dagger,
-    Nunchaku,
-    Shuriken,
-    Staff,
-}
-
-public enum EquipableRarity
-{
-    Common,
-    Uncommon,
-    Rare,
-    Epic,
-    Legendary
-}
-
-public enum EquipableDurability
-{
-    Eternal,
-    Brokable
-}
-
-public enum UniqueType
-{
-    Key,
-    Trasure
-}
-
-public enum PotionType
-{
-    LifeCure,
-    ManaCure,
-    WaterImprovement,
-    LavaResistance,
-    PoisonResistance,
-    SpeedUp,
-    AttackUp,
-    DefenseUp,
-    InfiniteArrows,
-    WeaponAttackUp,
-    JumpUp,
-    EternalMana,
-    Imortal,
-    TimeLower,
-}
-
 public class Collectible : MonoBehaviour
 {
     public string ResourceName;
@@ -102,9 +27,11 @@ public class Collectible : MonoBehaviour
 
     public GameObject WorthManipulation;
 
-    public void Collect()
-    {
+    private GameObject Owner;
 
+    public void Collect(GameObject owner)
+    {
+        Owner = owner;
     }
 
     // Put back on the inventory
@@ -119,10 +46,10 @@ public class Collectible : MonoBehaviour
 
     }
 
-    // In case of potion
-    public void Use()
+    // Attack, defend, drink
+    public void Use(GameObject owner)
     {
-
+        Owner = owner;
     }
 
     // Start is called before the first frame update
@@ -134,6 +61,10 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // If us being used update position relative to owner
+        if(Owner && Owner.transform)
+        {
+            transform.position = new Vector2(Owner.transform.position.x + (transform.localScale.x), Owner.transform.position.y);
+        }
     }
 }

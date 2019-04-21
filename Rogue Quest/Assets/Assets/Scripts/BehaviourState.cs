@@ -30,8 +30,6 @@ public class BehaviourState : MonoBehaviour
     private float LastWeaponUsedTime = 0f;
     private float RestrictWeaponUsagePerSecond = 0.4f;
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         anims = GetComponent<AnimedTile>();
@@ -55,11 +53,13 @@ public class BehaviourState : MonoBehaviour
         if (IsGrounded)
             anims.Play("idle");
     }
+
     public void GetAware()
     {
         IsAware = true;
         anims.Play("aware");
     }
+
     public void GetDead()
     {
         IsDead = true;
@@ -68,6 +68,7 @@ public class BehaviourState : MonoBehaviour
 
     public void FlyUp()
     {
+        rb2d.gravityScale = 0.2f;
         IsIdle = false;
 
         var h = 1;
@@ -75,24 +76,19 @@ public class BehaviourState : MonoBehaviour
 
         rb2d.velocity = new Vector2(rb2d.velocity.x, h * speed);
 
-        // if (h * rb2d.velocity.x < speed)
-        //     rb2d.AddForce(Vector2.up * h * speed);
-
         IsFlying = true;
         IsGrounded = false;
     }
 
     public void FlyDown()
     {
+        rb2d.gravityScale = 0.2f;
         IsIdle = false;
 
         var h = -1;
         var speed = Stats.GetClimbSpeed();
 
         rb2d.velocity = new Vector2(rb2d.velocity.x, h * speed);
-
-        // if (h * rb2d.velocity.x < speed)
-        //     rb2d.AddForce(Vector2.up * h * speed);
 
         IsFlying = true;
         IsGrounded = false;
@@ -138,7 +134,6 @@ public class BehaviourState : MonoBehaviour
             anims.Play("walk");
     }
 
-    // Could mean climb ladder or jump
     public void MoveUp()
     {
         // Detect collision with ladder and decide if just move up or jump
@@ -187,6 +182,9 @@ public class BehaviourState : MonoBehaviour
         IsShielded = false;
         var lastWeaponUsedTime = Time.time;
         var weapon = Inventory.MainWeapon;
+
+        if(weapon) weapon.Use(gameObject);
+
         anims.Play("attack");
     }
 
@@ -197,13 +195,16 @@ public class BehaviourState : MonoBehaviour
            Inventory.MainShield == null || Inventory.MainShield.WeaponDurability == 0) return;
 
         IsShielded = true;
+
         var shield = Inventory.MainShield;
+        if(shield) shield.Use(gameObject);
+
         anims.Play("defend");
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if(IsDead) return;
         UpdateLookingObject();
         CheckGrounded();
     }
@@ -239,14 +240,6 @@ public class BehaviourState : MonoBehaviour
             rb2d.gravityScale = 1f;
             IsGrounded = false;
         }
-    }
-
-    void ClampSpeed()
-    {
-        var speed = Stats.GetClimbSpeed();
-
-        if (Mathf.Abs(rb2d.velocity.x) > speed)
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y);
     }
 
     void OnTriggerStay2D(Collider2D other)
