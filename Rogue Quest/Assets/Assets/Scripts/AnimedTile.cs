@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimedTile : MonoBehaviour
 {
-    public float BaseFps = 60f;
+    private float BaseFps = 60f;
     private SpriteRenderer _renderer;
 
     public bool canIdle;
@@ -48,18 +48,17 @@ public class AnimedTile : MonoBehaviour
     public float DefendingSpeed = 1f;
     public bool DefendingRepeat = true;
 
-    public string currentAnimation;
-    public string nextAnimation;
-    public int currentFrame;
-    public float currentSpeed;
-    public Sprite[] currentSprites;
-    public int currentSpritePlaying;
-    public int currentSpriteFrame;
-    public bool currentRepeat;
-    public float nextAnimationTime = 0f;
-    public float nextAnimationTimePeriod = 0.01f;
-
-    public float totalFramesPerSprite;
+    private string currentAnimation;
+    private string nextAnimation;
+    private int currentFrame;
+    private float currentSpeed;
+    private Sprite[] currentSprites;
+    private int currentSpritePlaying;
+    private int currentSpriteFrame;
+    private bool currentRepeat;
+    private float nextAnimationTime = 0f;
+    private float nextAnimationTimePeriod = 0.01f;
+    private float totalFramesPerSprite;
 
     public void Play(string animation, string animationFinish = null)
     {
@@ -121,13 +120,12 @@ public class AnimedTile : MonoBehaviour
         currentRepeat = repeat;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Time.time < nextAnimationTime || currentSprites == null) return;
         nextAnimationTime = Time.time + nextAnimationTimePeriod;
 
-        if (currentFrame >= 60)
+        if (currentFrame >= BaseFps)
         {
             if (!currentRepeat && !string.IsNullOrEmpty(nextAnimation))
             {

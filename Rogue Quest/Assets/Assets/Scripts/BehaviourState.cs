@@ -43,7 +43,7 @@ public class BehaviourState : MonoBehaviour
 
     public void GetIdle()
     {
-        rb2d.velocity = Vector2.Lerp(rb2d.velocity, new Vector2(0f, rb2d.velocity.y), 0.1f * Time.deltaTime);
+        rb2d.velocity = Vector2.Lerp(rb2d.velocity, new Vector2(0f, rb2d.velocity.y), 0.01f * Time.deltaTime);
 
         IsIdle = true;
         IsWalking = false;
@@ -77,6 +77,7 @@ public class BehaviourState : MonoBehaviour
 
         // if (h * rb2d.velocity.x < speed)
         //     rb2d.AddForce(Vector2.up * h * speed);
+        
         IsFlying = true;
         IsGrounded = false;
     }

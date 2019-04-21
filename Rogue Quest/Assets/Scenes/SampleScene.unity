@@ -1007,7 +1007,7 @@ MonoBehaviour:
   RecoverLifeSpeed: 0
   Mana: 100
   RecoverManaSpeed: 0
-  Speed: 4
+  Speed: 3
   JumpSpeed: 2.2
   ClimbSpeed: 0.03
   Strength: 10
@@ -1076,7 +1076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89b2b58b1248d144ac935e50aa18199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseFps: 60
   canIdle: 1
   canWalk: 1
   canAttack: 1
@@ -1101,15 +1100,20 @@ MonoBehaviour:
   Jumping:
   - {fileID: 21300002, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
   JumpingSpeed: 0
+  JumpingRepeat: 0
   Climbing:
   - {fileID: 21300006, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
   ClimbingSpeed: 0
-  Dead: {fileID: 21300010, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
-  DeadDuration: 0
+  ClimbingRepeat: 1
+  Dead: []
+  DeadSpeed: 0
+  DeadRepeat: 1
   Aware: []
   AwareSpeed: 0
-  Defending: {fileID: 21300008, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
-  DefendingDuration: 0
+  AwareRepeat: 1
+  Defending: []
+  DefendingSpeed: 0
+  DefendingRepeat: 1
 --- !u!1 &866789110
 GameObject:
   m_ObjectHideFlags: 0
