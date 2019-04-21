@@ -5,7 +5,7 @@ TextureImporter:
     21300000: man11
     21300002: man12
     21300004: man13
-    21300006: main_tilesetman14_3
+    21300006: man14
     21300008: man15
     21300010: man1dead
     21300012: man21
@@ -1213,7 +1213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: main_tilesetman14_3
+      name: man14
       rect:
         serializedVersion: 2
         x: 464

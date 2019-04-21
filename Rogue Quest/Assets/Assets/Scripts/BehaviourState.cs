@@ -51,14 +51,19 @@ public class BehaviourState : MonoBehaviour
         IsClimbing = false;
         IsJumping = false;
         IsSwimming = false;
+
+        if (IsGrounded)
+            anims.Play("idle");
     }
     public void GetAware()
     {
         IsAware = true;
+        anims.Play("aware");
     }
     public void GetDead()
     {
         IsDead = true;
+        anims.Play("dead");
     }
 
     public void FlyUp()
@@ -107,6 +112,9 @@ public class BehaviourState : MonoBehaviour
 
         IsWalking = true;
         IsIdle = false;
+
+        if (IsGrounded)
+            anims.Play("walk");
     }
 
     public void MoveRight()
@@ -124,6 +132,9 @@ public class BehaviourState : MonoBehaviour
 
         IsWalking = true;
         IsIdle = false;
+
+        if (IsGrounded)
+            anims.Play("walk");
     }
 
     // Could mean climb ladder or jump
@@ -138,6 +149,7 @@ public class BehaviourState : MonoBehaviour
             var speed = Stats.GetClimbSpeed();
             rb2d.velocity = Vector2.zero;
             rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + (h * speed)));
+            anims.Play("climb");
         }
         else
         {
@@ -147,13 +159,14 @@ public class BehaviourState : MonoBehaviour
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
             IsJumping = true;
             IsGrounded = false;
+            anims.Play("jump");
         }
 
     }
 
     public void MoveDown()
     {
-         if (IsLaddered)
+        if (IsLaddered)
         {
             IsShielded = false;
 
@@ -161,6 +174,7 @@ public class BehaviourState : MonoBehaviour
             var speed = Stats.GetClimbSpeed();
             rb2d.velocity = Vector2.zero;
             rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + (h * speed)));
+            anims.Play("climb");
         }
     }
 
@@ -172,6 +186,7 @@ public class BehaviourState : MonoBehaviour
         IsShielded = false;
         var lastWeaponUsedTime = Time.time;
         var weapon = Inventory.MainWeapon;
+        anims.Play("attack");
     }
 
     // Could mean climb ladder or jump
@@ -182,6 +197,7 @@ public class BehaviourState : MonoBehaviour
 
         IsShielded = true;
         var shield = Inventory.MainShield;
+        anims.Play("defend");
     }
 
     // Update is called once per frame
@@ -212,11 +228,12 @@ public class BehaviourState : MonoBehaviour
             IsFlying = false;
             rb2d.gravityScale = 1f;
         }
-        else if(groundTag == "Ladder")
+        else if (groundTag == "Ladder")
         {
             rb2d.gravityScale = 0f;
             IsGrounded = false;
-        }else
+        }
+        else
         {
             rb2d.gravityScale = 1f;
             IsGrounded = false;
@@ -235,19 +252,20 @@ public class BehaviourState : MonoBehaviour
     // If Collides with floor and jumpforce = 0 then IsGrounded = true
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other == null || other.gameObject.layer == LayerMask.NameToLayer("WALL")) return;
+        if (other == null || other.gameObject.layer == LayerMask.NameToLayer("WALL")) return;
         IsLaddered = other.transform.CompareTag("Ladder");
         IsUnderLiquid = other.transform.CompareTag("Water");
 
-        if(IsLaddered || IsUnderLiquid)
+        if (IsLaddered || IsUnderLiquid)
         {
             rb2d.gravityScale = 0f;
         }
     }
 
-    void OnTriggerExit2D(Collider2D other) {
-        if(IsLaddered) IsLaddered = false;
-        if(IsUnderLiquid) IsUnderLiquid = false;
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (IsLaddered) IsLaddered = false;
+        if (IsUnderLiquid) IsUnderLiquid = false;
     }
 
 }

@@ -17,47 +17,147 @@ public class AnimedTile : MonoBehaviour
     public bool canDefend;
 
     public Sprite[] Idle;
-    public float IdleSpeed;
+    public float IdleSpeed = 1f;
     public bool IdleRepeat = true;
-    private float IdleCurrentFrame;
 
     public Sprite[] Walking;
-    public float WalkingSpeed;
+    public float WalkingSpeed = 1f;
     public bool WalkingRepeat = true;
-    private float WalkingCurrentFrame;
 
     public Sprite[] Attacking;
-    public float AttackingSpeed;
+    public float AttackingSpeed = 1f;
     public bool AttackingRepeat = true;
-    private float AttackingCurrentFrame;
 
     public Sprite[] Jumping;
-    public float JumpingSpeed;
-    private float JumpingCurrentFrame;
+    public float JumpingSpeed = 1f;
+    public bool JumpingRepeat = false;
 
     public Sprite[] Climbing;
-    public float ClimbingSpeed;
-    private float ClimbingCurrentFrame;
+    public float ClimbingSpeed = 1f;
+    public bool ClimbingRepeat = true;
 
-    public Sprite Dead;
-    public float DeadDuration;
+    public Sprite[] Dead;
+    public float DeadSpeed = 1f;
+    public bool DeadRepeat = true;
 
     public Sprite[] Aware;
-    public float AwareSpeed;
+    public float AwareSpeed = 1f;
+    public bool AwareRepeat = true;
 
-    public Sprite Defending;
-    public float DefendingDuration;      
+    public Sprite[] Defending;
+    public float DefendingSpeed = 1f;
+    public bool DefendingRepeat = true;
 
+    public string currentAnimation;
+    public string nextAnimation;
+    public int currentFrame;
+    public float currentSpeed;
+    public Sprite[] currentSprites;
+    public int currentSpritePlaying;
+    public int currentSpriteFrame;
+    public bool currentRepeat;
+    public float nextAnimationTime = 0f;
+    public float nextAnimationTimePeriod = 0.01f;
 
-    // Start is called before the first frame update
-    void Start()
+    public float totalFramesPerSprite;
+
+    public void Play(string animation, string animationFinish = null)
     {
-        
+        if (currentAnimation != animation)
+        {
+            currentAnimation = animation;
+            nextAnimation = animationFinish;
+
+            switch (animation.ToLower())
+            {
+                case "walk":
+                    if (!canWalk) return;
+                    Animate(Walking, WalkingSpeed, WalkingRepeat);
+                    break;
+                case "attack":
+                    if (!canAttack) return;
+                    Animate(Attacking, AttackingSpeed, AttackingRepeat);
+                    break;
+                case "jump":
+                    if (!canJump) return;
+                    Animate(Jumping, JumpingSpeed, JumpingRepeat);
+                    break;
+                case "climb":
+                    if (!canClimb) return;
+                    Animate(Climbing, ClimbingSpeed, ClimbingRepeat);
+                    break;
+                case "dead":
+                    if (!canDead) return;
+                    Animate(Dead, DeadSpeed, DeadRepeat);
+                    break;
+                case "aware":
+                    if (!canAware) return;
+                    Animate(Aware, AwareSpeed, AwareRepeat);
+                    break;
+                case "defend":
+                    if (!canDefend) return;
+                    Animate(Defending, DefendingSpeed, DefendingRepeat);
+                    break;
+                case "idle":
+                default:
+                    if (!canIdle) return;
+                    Animate(Idle, IdleSpeed, IdleRepeat);
+                    break;
+            }
+        }
+    }
+
+    private void Awake()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Animate(Sprite[] sprites, float speed, bool repeat)
+    {
+        currentFrame = 0;
+        currentSpritePlaying = 0;
+        currentSprites = sprites;
+        currentSpeed = speed;
+        currentRepeat = repeat;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.time < nextAnimationTime || currentSprites == null) return;
+        nextAnimationTime = Time.time + nextAnimationTimePeriod;
+
+        if (currentFrame >= 60)
+        {
+            if (!currentRepeat && !string.IsNullOrEmpty(nextAnimation))
+            {
+                Play(nextAnimation, null);
+                return;
+            }
+            else
+            {
+                currentFrame = 0;
+            }
+        }
+
+        totalFramesPerSprite = (BaseFps / currentSprites.Length) * (1 / (currentSpeed == 0 ? 1f : currentSpeed));
+
+        if (currentSpriteFrame > totalFramesPerSprite)
+        {
+            currentSpriteFrame = 0;
+
+            if(currentSprites.Length < 2) return;
+
+            currentSpritePlaying++;
+
+            if (currentSpritePlaying + 1 > currentSprites.Length)
+                currentSpritePlaying = 0;
+        }
+
+        if(currentSprites != null && currentSprites.Length >= currentSpritePlaying+1)
+        _renderer.sprite = currentSprites[currentSpritePlaying];
+
+        currentSpriteFrame++;
+        currentFrame++;
     }
 }
