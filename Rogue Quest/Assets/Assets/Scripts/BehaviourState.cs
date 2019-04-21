@@ -50,8 +50,7 @@ public class BehaviourState : MonoBehaviour
         IsJumping = false;
         IsSwimming = false;
 
-        if (IsGrounded)
-            anims.Play("idle");
+        anims.Play("idle");
     }
 
     public void GetAware()
@@ -183,7 +182,7 @@ public class BehaviourState : MonoBehaviour
         var lastWeaponUsedTime = Time.time;
         var weapon = Inventory.MainWeapon;
 
-        if(weapon) weapon.Use(gameObject);
+        if (weapon) weapon.Use(gameObject);
 
         anims.Play("attack");
     }
@@ -197,14 +196,14 @@ public class BehaviourState : MonoBehaviour
         IsShielded = true;
 
         var shield = Inventory.MainShield;
-        if(shield) shield.Use(gameObject);
+        if (shield) shield.Use(gameObject);
 
         anims.Play("defend");
     }
 
     void Update()
     {
-        if(IsDead) return;
+        if (IsDead) return;
         UpdateLookingObject();
         CheckGrounded();
     }
@@ -226,6 +225,7 @@ public class BehaviourState : MonoBehaviour
         if (groundTag == "GroundWall")
         {
             IsGrounded = true;
+            IsLaddered = false;
             IsJumping = false;
             IsFlying = false;
             rb2d.gravityScale = 1f;
@@ -233,7 +233,7 @@ public class BehaviourState : MonoBehaviour
         else if (groundTag == "Ladder")
         {
             rb2d.gravityScale = 0f;
-            IsGrounded = false;
+            IsLaddered = true;
         }
         else
         {

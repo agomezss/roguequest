@@ -6,7 +6,7 @@ public class Helper : MonoBehaviour {
     public static string RaycastDown(Transform transform, BoxCollider2D col)
     {
         var halfColliderSizeY = (col.size.y / 3);
-        var looksize = 0.15f;
+        var looksize = 0.2f;
         var lookdirection = -1; // -1 Down, Left
         var posIni = new Vector2(transform.position.x, transform.position.y + (lookdirection * halfColliderSizeY));
         var endPos = new Vector2(transform.position.x, transform.position.y + (lookdirection * (halfColliderSizeY + looksize)));
