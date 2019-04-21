@@ -19,7 +19,6 @@ public class BehaviourState : MonoBehaviour
     public bool IsClimbing;
     public bool IsFlying;
     public bool IsSwimming;
-    public bool IsFalling;
     public bool IsDead;
     public bool IsGrounded;
     public string LookingObject;
@@ -74,6 +73,7 @@ public class BehaviourState : MonoBehaviour
         // if (h * rb2d.velocity.x < speed)
         //     rb2d.AddForce(Vector2.up * h * speed);
         IsFlying = true;
+        IsGrounded = false;
     }
 
     public void FlyDown()
@@ -89,6 +89,7 @@ public class BehaviourState : MonoBehaviour
         //     rb2d.AddForce(Vector2.up * h * speed);
 
         IsFlying = true;
+        IsGrounded = false;
     }
 
     public void MoveLeft()
@@ -98,12 +99,11 @@ public class BehaviourState : MonoBehaviour
         var h = -1;
         var speed = Stats.GetSpeed();
 
-        //rb2d.velocity = h * speed * Vector2.right;
-        if (h * Mathf.Abs(rb2d.velocity.x) < speed) // MaxSpeed
-            rb2d.AddForce(Vector2.right * h * speed); // MoveForce
+        if (h * Mathf.Abs(rb2d.velocity.x) < speed)
+            rb2d.AddForce(Vector2.right * h * speed);
 
-        if (Mathf.Abs(rb2d.velocity.x) > speed) // MaxSpeed
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y); // MaxSpeed
+        if (Mathf.Abs(rb2d.velocity.x) > speed)
+            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y);
 
         IsWalking = true;
         IsIdle = false;
@@ -116,12 +116,11 @@ public class BehaviourState : MonoBehaviour
         var h = 1;
         var speed = Stats.GetSpeed();
 
-        //rb2d.velocity = h * speed * Vector2.right;
         if (h * Mathf.Abs(rb2d.velocity.x) < speed)
             rb2d.AddForce(Vector2.right * h * speed);
 
-        if (Mathf.Abs(rb2d.velocity.x) > speed) // MaxSpeed
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y); // MaxSpeed
+        if (Mathf.Abs(rb2d.velocity.x) > speed)
+            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * speed, rb2d.velocity.y);
 
         IsWalking = true;
         IsIdle = false;
@@ -130,24 +129,19 @@ public class BehaviourState : MonoBehaviour
     // Could mean climb ladder or jump
     public void MoveUp()
     {
+        // Detect collision with ladder and decide if just move up or jump
         if (IsLaddered)
         {
-            // Detect collision with ladder and decide if just move up or jump
-            // If climb then unshield
             IsShielded = false;
 
             var h = 1;
             var speed = Stats.GetClimbSpeed();
-
-            rb2d.velocity = new Vector2(rb2d.velocity.x, h * speed);
-
-            // if (h * rb2d.velocity.x < speed)
-            //     rb2d.AddForce(Vector2.up * h * speed);
+            rb2d.velocity = Vector2.zero;
+            rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + (h * speed)));
         }
         else
         {
-            // If Grounded and not jumping then jump
-            if (!IsGrounded || IsJumping) return;
+            if (!IsGrounded || IsJumping || Mathf.Abs(rb2d.velocity.y) > 0.1f) return;
 
             var jumpSpeed = Stats.GetJumpSpeed();
             rb2d.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
@@ -155,6 +149,19 @@ public class BehaviourState : MonoBehaviour
             IsGrounded = false;
         }
 
+    }
+
+    public void MoveDown()
+    {
+         if (IsLaddered)
+        {
+            IsShielded = false;
+
+            var h = -1;
+            var speed = Stats.GetClimbSpeed();
+            rb2d.velocity = Vector2.zero;
+            rb2d.MovePosition(new Vector2(rb2d.position.x, rb2d.position.y + (h * speed)));
+        }
     }
 
     public void UseWeapon()
@@ -189,7 +196,7 @@ public class BehaviourState : MonoBehaviour
         int mask = 1 << LayerMask.NameToLayer("WALL");
 
         var isEnemy = GetComponent<Enemy>() != null;
-        if(isEnemy) mask = mask | (1 << LayerMask.NameToLayer("PLAYER"));
+        if (isEnemy) mask = mask | (1 << LayerMask.NameToLayer("PLAYER"));
         else mask = mask | (1 << LayerMask.NameToLayer("OBJ"));
 
         LookingObject = Helper.RaycastHorizontal(transform, col, mask);
@@ -198,17 +205,21 @@ public class BehaviourState : MonoBehaviour
     void CheckGrounded()
     {
         var groundTag = Helper.RaycastDown(transform, col);
-
-        if (groundTag == "GroundWall" && rb2d.velocity.y == 0f)
+        if (groundTag == "GroundWall")
         {
             IsGrounded = true;
             IsJumping = false;
-            IsFalling = false;
             IsFlying = false;
+            rb2d.gravityScale = 1f;
         }
-        else
+        else if(groundTag == "Ladder")
         {
-            IsFalling = true;
+            rb2d.gravityScale = 0f;
+            IsGrounded = false;
+        }else
+        {
+            rb2d.gravityScale = 1f;
+            IsGrounded = false;
         }
     }
 
@@ -222,25 +233,21 @@ public class BehaviourState : MonoBehaviour
 
 
     // If Collides with floor and jumpforce = 0 then IsGrounded = true
-    void OnCollisionStay2D(Collision2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.transform.tag == "Ladder")
-        {
-            IsLaddered = true;
-        }
-        else
-        {
-            IsLaddered = false;
-        }
+        if(other == null || other.gameObject.layer == LayerMask.NameToLayer("WALL")) return;
+        IsLaddered = other.transform.CompareTag("Ladder");
+        IsUnderLiquid = other.transform.CompareTag("Water");
 
-        if (other.transform.tag == "Water")
+        if(IsLaddered || IsUnderLiquid)
         {
-            IsUnderLiquid = true;
+            rb2d.gravityScale = 0f;
         }
-        else
-        {
-            IsUnderLiquid = false;
-        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if(IsLaddered) IsLaddered = false;
+        if(IsUnderLiquid) IsUnderLiquid = false;
     }
 
 }

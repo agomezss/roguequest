@@ -50,5 +50,9 @@ public class Player : MonoBehaviour
         {
             state.MoveUp();
         }
+        else if (vertical < 0f)
+        {
+            state.MoveDown();
+        }
     }
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - GroundWall
+  - Ladder
+  - Water
+  - Enemy
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - WALL
   - OBJ
   - PLAYER
-  - 
+  - LADDER
   - 
   - 
   - 
