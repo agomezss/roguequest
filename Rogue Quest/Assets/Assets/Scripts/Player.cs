@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         state = GetComponent<BehaviourState>();
+        Inventory = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
