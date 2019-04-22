@@ -9,16 +9,16 @@ public class Collectible : MonoBehaviour
 #if UNITY_EDITOR
     public string Name;
 #endif
+
+    public Guid UID = Guid.NewGuid();
     public Sprite Graphic;
 
     public bool IsUnique;
     public UniqueType Unique;
-
     public CollectibleType Type;
     public EquipableType EquipType;
     public EquipableRarity Rarity;
     public EquipableDurability Durability;
-
     public WeaponType Weapon;
     public Sprite WeaponProjectile;
     public int WeaponQuantity;
@@ -30,8 +30,6 @@ public class Collectible : MonoBehaviour
     public float WorthPoints;
     public float WorthPercentage;
     public float WorthDuration;
-
-    public GameObject WorthManipulation;
     private GameObject Owner;
 
     private bool Collected;
@@ -57,29 +55,23 @@ public class Collectible : MonoBehaviour
 
         Renderer.enabled = false;
         Collected = true;
-        BeingUsed = true;
+
 
         Color restoredColor = Color.white;
         restoredColor.a = 1f;
         Renderer.color = restoredColor;
     }
 
-    // Put back on the inventory
-    public void Unequip()
-    {
-
-    }
-
-    // Set main equip to owner
-    public void Equip()
-    {
-
-    }
-
     // Attack, defend, drink
     public void Use(GameObject owner)
     {
         Owner = owner;
+        BeingUsed = true;
+    }
+
+    public void UnUse()
+    {
+        BeingUsed = false;
     }
 
     // Start is called before the first frame update
@@ -119,8 +111,12 @@ public class Collectible : MonoBehaviour
                 // SendMessage("Fade", fadeOptions, SendMessageOptions.DontRequireReceiver);
             }
         }
-
-        if (BeingUsed)
+        else if (Collected && !BeingUsed)
+        {
+            Renderer.enabled = false;
+        }
+        else if (BeingUsed &&
+           (EquipType == EquipableType.Weapon || EquipType == EquipableType.Shield))
         {
             Renderer.enabled = true;
 
