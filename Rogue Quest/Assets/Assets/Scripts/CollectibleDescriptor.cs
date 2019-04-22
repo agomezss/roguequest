@@ -1,63 +1,49 @@
 
 public enum CollectibleType
 {
-    Treasure = 0,
-    Potion = 1,
-    Food = 2,
-    Equipable = 3,
-    Unique = 5,
+    Usable = 0,
+    Equipable = 1,
+    Unique = 2,
 }
 
 public enum EquipableType
 {
     Weapon = 1,
     Shield = 2,
-    Rune = 3,
-    Ring = 4,
-    Clothe = 5,
-    Other = 6
+    Ring = 3,
+    Clothe = 4,
+    Other = 5
 }
 
 public enum WeaponType
 {
-    Shield = 0,
-    Sword,
-    Axe,
-    Bow,
-    Arrow,
-    Crossbow,
-    Hammer,
-    Whip,
-    Spear,
-    Dagger,
-    Nunchaku,
-    Shuriken,
-    Staff,
+    NoWeapon,
+    Shield,
+    Weapon, // ie: sword, dagger, knife, staff
+    WeaponWithProjectile, // ie: bow
+    SelfProjectile, // ie: shuriken, magic
+    ThrowDistanceThanBack // ie: boomerang
 }
 
 public enum EquipableRarity
 {
-    Common,
-    Uncommon,
-    Rare,
-    Epic,
-    Legendary
+    Common = 1,
+    Uncommon = 2,
+    Rare = 3,
+    Epic = 4,
+    Legendary = 5
 }
-
-public enum EquipableDurability
-{
-    Eternal,
-    Brokable
-}
-
 public enum UniqueType
 {
-    Key,
-    Trasure
+    None = 0,
+    Key = 1,
+    Trasure = 2,
+    QuestKey = 3
 }
 
-public enum PotionType
+public enum UsableEffect
 {
+    None,
     LifeCure,
     ManaCure,
     WaterImprovement,
