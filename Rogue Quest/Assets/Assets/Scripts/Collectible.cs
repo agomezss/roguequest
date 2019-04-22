@@ -39,10 +39,13 @@ public class Collectible : MonoBehaviour
     private SpriteRenderer Renderer;
     private BoxCollider2D col;
 
+    private float lastHighlightTime = 0f;
+    private float HighlightFrequency = 2f;
+
 
     public void Collect(GameObject owner)
     {
-        col.enabled = false; 
+        col.enabled = false;
 
         Owner = owner;
 
@@ -56,6 +59,10 @@ public class Collectible : MonoBehaviour
         Renderer.enabled = false;
         Collected = true;
         BeingUsed = true;
+
+        Color restoredColor = Renderer.color;
+        restoredColor.a = 1f;
+        Renderer.color = restoredColor;
     }
 
     // Put back on the inventory
@@ -88,7 +95,7 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(Collected) return;
+        if (Collected) return;
 
         if (other.transform.CompareTag("Player"))
         {
@@ -99,15 +106,26 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(BeingUsed)
+        if (!Collected)
         {
-            Renderer.enabled = true;
+            if (Time.time - lastHighlightTime > HighlightFrequency)
+            {
+                lastHighlightTime = Time.time;
+                var fadeOptions = new FadeOptions();
+                fadeOptions.newColor = Color.yellow;
+                SendMessage("Fade", fadeOptions, SendMessageOptions.DontRequireReceiver);
+            }
         }
 
-        // If us being used update position relative to owner
-        if (Owner && Owner.transform)
+        if (BeingUsed)
         {
-            transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y);
+            Renderer.enabled = true;
+
+            // If us being used update position relative to owner
+            if (Owner && Owner.transform)
+            {
+                transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y);
+            }
         }
     }
 }

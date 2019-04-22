@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-public class Helper : MonoBehaviour {
+using UnityEngine.UI;
 
+public class Helper : MonoBehaviour
+{
+    
     public static string RaycastDown(Transform transform, BoxCollider2D col)
     {
         var halfColliderSizeY = (col.size.y / 3);
@@ -20,7 +24,7 @@ public class Helper : MonoBehaviour {
         mask = mask | 1 << LayerMask.NameToLayer("LADDER");
         mask = mask | 1 << LayerMask.NameToLayer("Water");
 
-        var hit = Physics2D.Linecast(posIni,endPos,mask);
+        var hit = Physics2D.Linecast(posIni, endPos, mask);
 
         if (hit.transform != null)
         {
@@ -38,7 +42,7 @@ public class Helper : MonoBehaviour {
         var endPos = new Vector2(transform.position.x + (lookdirection * (halfColliderSizeX + looksize)), transform.position.y);
         Debug.DrawLine(posIni, endPos);
 
-        var hit = Physics2D.Linecast(posIni,endPos,mask);
+        var hit = Physics2D.Linecast(posIni, endPos, mask);
 
         if (hit.transform != null)
         {
@@ -48,6 +52,7 @@ public class Helper : MonoBehaviour {
         return null;
     }
 
+    // Require serializable objects
     public static T Clone<T>(T source)
     {
         if (!typeof(T).IsSerializable)
@@ -69,5 +74,51 @@ public class Helper : MonoBehaviour {
             stream.Seek(0, SeekOrigin.Begin);
             return (T)formatter.Deserialize(stream);
         }
+    }
+
+    public static T DeepCopy<T>(T obj)
+    {
+        if (obj == null)
+            throw new ArgumentNullException("Object cannot be null");
+        return (T)Process(obj);
+    }
+
+    static object Process(object obj)
+    {
+        if (obj == null)
+            return null;
+        Type type = obj.GetType();
+        if (type.IsValueType || type == typeof(string))
+        {
+            return obj;
+        }
+        else if (type.IsArray)
+        {
+            Type elementType = Type.GetType(
+                 type.FullName.Replace("[]", string.Empty));
+            var array = obj as Array;
+            Array copied = Array.CreateInstance(elementType, array.Length);
+            for (int i = 0; i < array.Length; i++)
+            {
+                copied.SetValue(Process(array.GetValue(i)), i);
+            }
+            return Convert.ChangeType(copied, obj.GetType());
+        }
+        else if (type.IsClass)
+        {
+            object toret = Activator.CreateInstance(obj.GetType());
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public |
+                        BindingFlags.NonPublic | BindingFlags.Instance);
+            foreach (FieldInfo field in fields)
+            {
+                object fieldValue = field.GetValue(obj);
+                if (fieldValue == null)
+                    continue;
+                field.SetValue(toret, Process(fieldValue));
+            }
+            return toret;
+        }
+        else
+            throw new ArgumentException("Unknown type");
     }
 }

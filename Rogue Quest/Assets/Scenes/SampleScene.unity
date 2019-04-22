@@ -3057,6 +3057,7 @@ GameObject:
   - component: {fileID: 1416469575}
   - component: {fileID: 1416469574}
   - component: {fileID: 1416469576}
+  - component: {fileID: 1416469577}
   m_Layer: 10
   m_Name: Potion
   m_TagString: Item
@@ -3183,6 +3184,18 @@ MonoBehaviour:
   WorthPercentage: 0
   WorthDuration: 0
   WorthManipulation: {fileID: 0}
+--- !u!114 &1416469577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416469572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f6f8ff98a0dbb4baff093ff5fb65bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1454875190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2207497747749501760, guid: 522b315b131694446bc131e7b1ffa679,
@@ -3449,6 +3462,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06440d4fb10dfc04e8e9f689d7bc7b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOverText: {fileID: 0}
+  PauseText: {fileID: 0}
+  IsPaused: 0
+  LastPausedTime: 0
+  cam: {fileID: 0}
+  lastTimeDamageEffect: 0
 --- !u!4 &1726549883
 Transform:
   m_ObjectHideFlags: 0
@@ -9738,5 +9757,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658661, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658661, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658661, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658661, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658661, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658661, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed36094c298875040a7ef6a3c7e32286, type: 3}

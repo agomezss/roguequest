@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Stats Stats;
-    public Inventory Inventory;
-    public AnimedTile anims;
-    public Rigidbody2D rb;
-    public BoxCollider2D col;
     public BehaviourState state;
 
     // Start is called before the first frame update
     void Awake()
     {
-        Stats = GetComponent<Stats>();
-        anims = GetComponent<AnimedTile>();
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
         state = GetComponent<BehaviourState>();
-        Inventory = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -54,6 +44,28 @@ public class Player : MonoBehaviour
         else if (vertical < 0f)
         {
             state.MoveDown();
+        }
+
+        if (SimpleInput.GetButton("Fire1"))
+        {
+            state.UseWeapon();
+        }
+        else if (SimpleInput.GetButton("Fire2"))
+        {
+            state.UseShield();
+        }
+        
+        if (SimpleInput.GetButton("Jump"))
+        {
+            GameManager.S.PauseUnpause();
+        }
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.S.PauseUnpause();
+            }
         }
     }
 }
