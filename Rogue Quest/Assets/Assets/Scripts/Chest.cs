@@ -4,32 +4,60 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    public bool DestroyOnOpen;
     public bool IsOpen;
-    public Sprite Closed;
-    public Sprite Open;
+    public Sprite ClosedGraphic;
+    public Sprite OpenGraphic;
     public GameObject Treasure;
 
     public KeyType RequiredTypedKey;
-    public GameObject SpecificKeyObject;
+    public string SpecificKeyName;
 
     public bool IsFake;
     public GameObject[] Enemies;
     public float damage;
 
-    public void TryOpen(Key requiredKey = null)
-    {
+    private SpriteRenderer renderer;
+    private BoxCollider2D col;
 
+
+    public bool TryOpen(Key key = null)
+    {
+        if (IsOpen) return false;
+        if (key && RequiredTypedKey != key.Type) return false;
+        if (key && !string.IsNullOrEmpty(SpecificKeyName) && key.Name != SpecificKeyName) return false;
+
+        Open();
+        return true;
+    }
+
+    public void Close()
+    {
+        IsOpen = false;
+
+        if (ClosedGraphic)
+            renderer.sprite = ClosedGraphic;
+
+        col.enabled = true;
+    }
+
+    public void Open()
+    {
+        IsOpen = true;
+
+        col.enabled = false;
+
+        if (OpenGraphic)
+            renderer.sprite = OpenGraphic;
+
+        if (DestroyOnOpen)
+            Destroy(gameObject);
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        renderer = GetComponent<SpriteRenderer>();
+        col = GetComponent<BoxCollider2D>();
     }
 }

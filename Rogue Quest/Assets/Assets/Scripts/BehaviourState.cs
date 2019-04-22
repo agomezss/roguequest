@@ -111,8 +111,6 @@ public class BehaviourState : MonoBehaviour
         IsWalking = true;
         IsIdle = false;
 
-
-
         if (IsGrounded || IsUnderLiquid)
             anims.Play("walk");
     }

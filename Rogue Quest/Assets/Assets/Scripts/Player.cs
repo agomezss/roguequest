@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public BehaviourState state;
+    private BehaviourState state;
+    private Inventory inventory;
 
     // Start is called before the first frame update
     void Awake()
     {
         state = GetComponent<BehaviourState>();
+        inventory = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -65,6 +68,26 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 GameManager.S.PauseUnpause();
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.transform.CompareTag("Object"))
+        {
+            var door = other.gameObject.GetComponent<Door>();
+            if(door)
+            {
+                var simpleLock = door.TryOpen();
+
+                if(!simpleLock)
+                {
+                    var requiredKey = inventory.SearchKey(door.RequiredTypedKey, door.SpecificKeyName);
+                    if(requiredKey != null)
+                    {
+                        door.TryOpen(requiredKey);
+                    }
+                }
             }
         }
     }

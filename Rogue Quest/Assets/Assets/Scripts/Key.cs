@@ -5,10 +5,12 @@ using UnityEngine;
 
 public enum KeyType
 {
-    Any = 0,
+    None,
+    Any,
     Gold,
     Silver,
-    Skull
+    Skull,
+    Specific
 }
 
 public class Key : MonoBehaviour
@@ -16,15 +18,4 @@ public class Key : MonoBehaviour
     public KeyType Type;
     public string Name;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -95,6 +96,17 @@ public class Inventory : MonoBehaviour
     public void Destroy(Collectible item)
     {
         Destroy(item.gameObject);
+    }
+
+    public Collectible SearchKey(KeyType requiredTypedKey, string specificKeyName)
+    {
+        var byName = StoredItems.FirstOrDefault(a=>a.Name == specificKeyName);
+
+        if(byName!=null) return byName;
+
+        var byType = StoredItems.FirstOrDefault(a=>a.SpecificKeyType == requiredTypedKey);
+
+        return byType;
     }
 
     public void DropAll()

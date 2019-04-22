@@ -27,6 +27,8 @@ public class Collectible : MonoBehaviour
     public float WorthPercentage;
     public float WorthDuration;
 
+    public KeyType SpecificKeyType;
+
     private Sprite Graphic;
     private GameObject Owner;
     private bool Collected;
