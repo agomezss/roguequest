@@ -21,7 +21,8 @@ public class Collectible : MonoBehaviour
     public float WeaponDurability = -1f;
     public float WeaponDamage = 10f;
     public bool HideWhenShoot;
-    public UsableEffect Effect;
+    public EffectType EffectType;
+    public EffectStat EffectStat;
     public float WorthPoints;
     public float WorthPercentage;
     public float WorthDuration;

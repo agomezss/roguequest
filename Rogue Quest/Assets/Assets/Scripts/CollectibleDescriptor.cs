@@ -17,10 +17,9 @@ public enum EquipableType
 
 public enum WeaponType
 {
-    NoWeapon,
-    Shield,
-    Weapon, // ie: sword, dagger, knife, staff
-    WeaponWithProjectile, // ie: bow
+    None,
+    RegularWeapon, // ie: sword, dagger, knife, staff
+    WithProjectile, // ie: bow
     SelfProjectile, // ie: shuriken, magic
     ThrowDistanceThanBack // ie: boomerang
 }
@@ -33,6 +32,7 @@ public enum EquipableRarity
     Epic = 4,
     Legendary = 5
 }
+
 public enum UniqueType
 {
     None = 0,
@@ -41,21 +41,29 @@ public enum UniqueType
     QuestKey = 3
 }
 
-public enum UsableEffect
+public enum EffectStat
 {
     None,
-    LifeCure,
-    ManaCure,
-    WaterImprovement,
-    LavaResistance,
+    Life,
+    Mana,
+    Speed,
+    Jump,
+    Climb,
+    Attack,
+    Defense,
+    Intelligence,
+    IntelligenceResistance,
+    WaterResistance,
     PoisonResistance,
-    SpeedUp,
-    AttackUp,
-    DefenseUp,
-    InfiniteArrows,
-    WeaponAttackUp,
-    JumpUp,
-    EternalMana,
-    Imortal,
-    TimeLower,
+    LavaResistence,
+    Time,
+}
+
+public enum EffectType
+{
+    None,
+    Recover,
+    Increase,
+    TemporaryImprovement,
+    TemporatyInfinity
 }
