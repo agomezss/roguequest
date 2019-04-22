@@ -42,7 +42,6 @@ public class Collectible : MonoBehaviour
     private float lastHighlightTime = 0f;
     private float HighlightFrequency = 2f;
 
-
     public void Collect(GameObject owner)
     {
         col.enabled = false;
@@ -60,7 +59,7 @@ public class Collectible : MonoBehaviour
         Collected = true;
         BeingUsed = true;
 
-        Color restoredColor = Renderer.color;
+        Color restoredColor = Color.white;
         restoredColor.a = 1f;
         Renderer.color = restoredColor;
     }
@@ -111,9 +110,13 @@ public class Collectible : MonoBehaviour
             if (Time.time - lastHighlightTime > HighlightFrequency)
             {
                 lastHighlightTime = Time.time;
-                var fadeOptions = new FadeOptions();
-                fadeOptions.newColor = Color.yellow;
-                SendMessage("Fade", fadeOptions, SendMessageOptions.DontRequireReceiver);
+                var fadeOptions = new BlinkColorOptions();
+                fadeOptions.Color1 = Renderer.color;
+                fadeOptions.Color2 = Color.gray;
+                SendMessage("BlinkColor", fadeOptions, SendMessageOptions.DontRequireReceiver);
+                // var fadeOptions = new FadeOptions();
+                // fadeOptions.newColor = Color.yellow;
+                // SendMessage("Fade", fadeOptions, SendMessageOptions.DontRequireReceiver);
             }
         }
 
