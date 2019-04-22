@@ -51,7 +51,7 @@ public class BehaviourState : MonoBehaviour
         IsJumping = false;
         IsSwimming = false;
 
-        if(Time.time - LastJump > 1f)
+        if (Time.time - LastJump > 1f)
             anims.Play("idle");
     }
 
@@ -111,7 +111,9 @@ public class BehaviourState : MonoBehaviour
         IsWalking = true;
         IsIdle = false;
 
-        if (IsGrounded)
+
+
+        if (IsGrounded || IsUnderLiquid)
             anims.Play("walk");
     }
 
@@ -131,7 +133,7 @@ public class BehaviourState : MonoBehaviour
         IsWalking = true;
         IsIdle = false;
 
-        if (IsGrounded)
+        if (IsGrounded || IsUnderLiquid)
             anims.Play("walk");
     }
 
