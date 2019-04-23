@@ -579,6 +579,137 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d23342bbd71a4f458b1fe48394f8401, type: 3}
+--- !u!1001 &703026028
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 796252410}
+    m_Modifications:
+    - target: {fileID: 4883826593414333264, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_Name
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333267, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300046, guid: 1d0aec212ef3afe49ab83bbc423e602d,
+        type: 3}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: Name
+      value: Simple Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: EquipType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: Unique
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: Rarity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: Weapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: WeaponQuantity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: WeaponDurability
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: WeaponDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883826593414333276, guid: 27bcf01728daddc459e985e95ae4ea5f,
+        type: 3}
+      propertyPath: SpecificKeyType
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 27bcf01728daddc459e985e95ae4ea5f, type: 3}
+--- !u!4 &703026029 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
+    type: 3}
+  m_PrefabInstance: {fileID: 703026028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &796252409
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +764,7 @@ Transform:
   - {fileID: 404426675}
   - {fileID: 8677265155881865038}
   - {fileID: 5381177151709710051}
+  - {fileID: 703026029}
   m_Father: {fileID: 2089588780}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9429,7 +9561,7 @@ PrefabInstance:
     - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4883826593414333265, guid: 27bcf01728daddc459e985e95ae4ea5f,
         type: 3}
@@ -9785,7 +9917,7 @@ PrefabInstance:
     - target: {fileID: 8409096801326658586, guid: ed36094c298875040a7ef6a3c7e32286,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8409096801326658586, guid: ed36094c298875040a7ef6a3c7e32286,
         type: 3}

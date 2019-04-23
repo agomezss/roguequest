@@ -15,8 +15,9 @@ public class Collectible : MonoBehaviour
     public UniqueType Unique;
     public EquipableRarity Rarity;
     public WeaponType Weapon;
-    public Sprite WeaponProjectile;
+    public GameObject WeaponProjectile;
     public int WeaponProjectileQuantity; // -1 for infinite
+    public float WeaponProjectileSpeed = 10f;
     public int WeaponQuantity = 1;
     public float WeaponDurability = -1f;
     public float WeaponDamage = 10f;
@@ -91,6 +92,29 @@ public class Collectible : MonoBehaviour
         {
             Collect(other.gameObject);
         }
+        else if (other.transform.CompareTag("Enemy"))
+        {
+            ApplyDamage(other.gameObject);
+        }
+    }
+
+    void ApplyDamage(GameObject obj)
+    {
+        var enemyStats = obj.GetComponent<Stats>();
+
+        if (enemyStats)
+            enemyStats.GetDamage(WeaponDamage);
+    }
+
+    public void Shoot()
+    {
+        var instance = Instantiate(WeaponProjectile, transform.position, Quaternion.identity);
+        var projectile = instance.GetComponent<Projectile>();
+        projectile.Shooter = gameObject;
+        projectile.Damage = WeaponDamage;
+        
+        instance.GetComponent<Rigidbody2D>().AddForce(transform.right * WeaponProjectileSpeed);
+        Physics2D.IgnoreCollision(instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     // Update is called once per frame

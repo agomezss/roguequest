@@ -38,8 +38,26 @@ public class Inventory : MonoBehaviour
     {
         if (!item) return false;
 
-        if (StoredItems.Count < StoreCapacity)
+        if (item.EquipType == EquipableType.Weapon && MainWeapon == null)
+        {
+            MainWeapon = item;
+        }
+        else if (item.EquipType == EquipableType.Shield && MainShield == null)
+        {
+            MainShield = item;
+        }
+        else if (item.EquipType == EquipableType.Ring && MainRing == null)
+        {
+            MainRing = item;
+        }
+        else if (item.EquipType == EquipableType.Clothe && MainClothes == null)
+        {
+            MainClothes = item;
+        }
+        else if (StoredItems.Count < StoreCapacity)
+        {
             StoredItems.Add(item);
+        }
 
         return true;
     }
@@ -98,13 +116,18 @@ public class Inventory : MonoBehaviour
         Destroy(item.gameObject);
     }
 
+    public Collectible SearchByName(string name)
+    {
+        return StoredItems.FirstOrDefault(a => a.Name == name);
+    }
+
     public Collectible SearchKey(KeyType requiredTypedKey, string specificKeyName)
     {
-        var byName = StoredItems.FirstOrDefault(a=>a.Name == specificKeyName);
+        var byName = SearchByName(specificKeyName);
 
-        if(byName!=null) return byName;
+        if (byName != null) return byName;
 
-        var byType = StoredItems.FirstOrDefault(a=>a.SpecificKeyType == requiredTypedKey);
+        var byType = StoredItems.FirstOrDefault(a => a.SpecificKeyType == requiredTypedKey);
 
         return byType;
     }

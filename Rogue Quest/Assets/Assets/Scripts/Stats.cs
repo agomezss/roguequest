@@ -62,6 +62,13 @@ public class Stats : MonoBehaviour
     private float TemporaryWaterResistance;
     private float TemporaryWaterResistanceDuration;
 
+    public void GetDamage(float damage)
+    {
+        var rest = TemporaryLife - damage;
+        Life -= rest;
+        if (Life < 0) Life = 0;
+    }
+
     public float GetLife()
     {
         return Life + TemporaryLife;
