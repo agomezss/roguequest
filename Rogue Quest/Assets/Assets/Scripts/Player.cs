@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         {
             state.UseShield();
         }
-        
+
         if (SimpleInput.GetButton("Jump"))
         {
             GameManager.S.PauseUnpause();
@@ -72,20 +72,36 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.transform.CompareTag("Object"))
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Object"))
         {
             var door = other.gameObject.GetComponent<Door>();
-            if(door)
+            if (door)
             {
                 var simpleLock = door.TryOpen();
 
-                if(!simpleLock)
+                if (!simpleLock)
                 {
                     var requiredKey = inventory.SearchKey(door.RequiredTypedKey, door.SpecificKeyName);
-                    if(requiredKey != null)
+                    if (requiredKey != null)
                     {
                         door.TryOpen(requiredKey);
+                    }
+                }
+            }
+
+            var chest = other.gameObject.GetComponent<Chest>();
+            if (chest)
+            {
+                var simpleLock = chest.TryOpen(null,gameObject);
+
+                if (!simpleLock)
+                {
+                    var requiredKey = inventory.SearchKey(chest.RequiredTypedKey, chest.SpecificKeyName);
+                    if (requiredKey != null)
+                    {
+                        chest.TryOpen(requiredKey, gameObject);
                     }
                 }
             }

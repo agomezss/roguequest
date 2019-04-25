@@ -8,26 +8,31 @@ public class Chest : MonoBehaviour
     public bool IsOpen;
     public Sprite ClosedGraphic;
     public Sprite OpenGraphic;
-    public GameObject Treasure;
+    public GameObject[] Treasures;
 
     public KeyType RequiredTypedKey;
     public string SpecificKeyName;
 
-    public bool IsFake;
     public GameObject[] Enemies;
     public float damage;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer rend;
     private BoxCollider2D col;
 
+    private float lastHighlightTime = 0f;
+    private float HighlightFrequency = 2f;
 
-    public bool TryOpen(Key key = null)
+
+    public bool TryOpen(Collectible key = null, GameObject opener = null)
     {
-        if (IsOpen) return false;
-        if (key && RequiredTypedKey != key.Type) return false;
-        if (key && !string.IsNullOrEmpty(SpecificKeyName) && key.Name != SpecificKeyName) return false;
+        if (RequiredTypedKey != KeyType.None)
+        {
+            if (IsOpen || key == null) return false;
+            if (RequiredTypedKey != key.SpecificKeyType) return false;
+            if (!string.IsNullOrEmpty(SpecificKeyName) && key.Name != SpecificKeyName) return false;
+        }
 
-        Open();
+        Open(opener);
         return true;
     }
 
@@ -36,28 +41,84 @@ public class Chest : MonoBehaviour
         IsOpen = false;
 
         if (ClosedGraphic)
-            renderer.sprite = ClosedGraphic;
+            rend.sprite = ClosedGraphic;
 
         col.enabled = true;
     }
 
-    public void Open()
+    public void Open(GameObject opener = null)
     {
         IsOpen = true;
 
         col.enabled = false;
 
         if (OpenGraphic)
-            renderer.sprite = OpenGraphic;
+        {
+            rend.sprite = OpenGraphic;
+            var color = rend.material.color;
+            color.a = 0.25f;
+            rend.material.color = color;
+        }
+
+        RevealTreasures(opener);
 
         if (DestroyOnOpen)
             Destroy(gameObject);
     }
 
+    void CreateTreasures()
+    {
+        foreach (var item in Treasures)
+        {
+            var position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
+            Instantiate(item, position, Quaternion.identity);
+        }
+    }
+
+    void CreateEnemies()
+    {
+        foreach (var item in Enemies)
+        {
+            var position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
+            Instantiate(item, position, Quaternion.identity);
+        }
+    }
+
+    void RevealTreasures(GameObject opener = null)
+    {
+        if (opener && damage != 0f)
+        {
+            var stats = opener.GetComponent<Stats>();
+
+            if (stats)
+            {
+                stats.GetDamage(damage);
+            }
+        }
+
+        CreateEnemies();
+        CreateTreasures();
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        rend = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
+    }
+
+    void Update()
+    {
+        if (!IsOpen)
+        {
+            if (Time.time - lastHighlightTime > HighlightFrequency)
+            {
+                lastHighlightTime = Time.time;
+                var fadeOptions = new BlinkColorOptions();
+                fadeOptions.Color1 = rend.color;
+                fadeOptions.Color2 = Color.gray;
+                SendMessage("BlinkColor", fadeOptions, SendMessageOptions.DontRequireReceiver);
+            }
+        }
     }
 }
