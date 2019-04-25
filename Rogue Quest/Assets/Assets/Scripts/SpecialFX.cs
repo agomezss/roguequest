@@ -22,7 +22,7 @@ public class BlinkColorOptions
 
 public class SpecialFX : MonoBehaviour
 {
-    SpriteRenderer renderer;
+    private SpriteRenderer rend;
 
     public float FadeFrequency = 2f;
     public float BlinkFrequency = 2f;
@@ -40,7 +40,7 @@ public class SpecialFX : MonoBehaviour
 
     private void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     public void Fade(FadeOptions options)
@@ -48,7 +48,7 @@ public class SpecialFX : MonoBehaviour
         if (Time.time - lastFadeTime > FadeFrequency)
         {
             lastFadeTime = Time.time;
-            options.oldColor = renderer.material.color;
+            options.oldColor = rend.material.color;
             StartCoroutine(FadeFx(options));
         }
     }
@@ -65,10 +65,10 @@ public class SpecialFX : MonoBehaviour
     IEnumerator BlinkColorFx(BlinkColorOptions options)
     {
         yield return new WaitForSeconds(options.Time);
-        renderer.material.color = Color.Lerp(options.Color2, options.Color1, options.Time);
+        rend.material.color = Color.Lerp(options.Color2, options.Color1, options.Time);
         yield return new WaitForSeconds(options.Time);
         if (!options.returnOnEnd) yield break; // return false?
-        renderer.material.color = Color.Lerp(options.Color1, options.Color2, options.Time);
+        rend.material.color = Color.Lerp(options.Color1, options.Color2, options.Time);
         yield return new WaitForSeconds(options.Time);
     }
 
@@ -77,7 +77,7 @@ public class SpecialFX : MonoBehaviour
         for (float f = 1f; f >= 0.5; f -= 0.1f)
         {
             options.newColor.a = f;
-            renderer.material.color = options.newColor;
+            rend.material.color = options.newColor;
             yield return new WaitForSeconds(options.fadeInTime);
         }
 
@@ -86,7 +86,7 @@ public class SpecialFX : MonoBehaviour
         for (float f = 0.5f; f <= 1; f += 0.1f)
         {
             options.oldColor.a = f;
-            renderer.material.color = options.oldColor;
+            rend.material.color = options.oldColor;
             yield return new WaitForSeconds(options.fadeOutTime);
         }
     }

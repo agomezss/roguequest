@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
 {
     public bool DestroyOnOpen;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer rend;
     private BoxCollider2D col;
 
     public Sprite ClosedGraphic;
@@ -37,7 +37,7 @@ public class Door : MonoBehaviour
         IsOpen = false;
 
         if (ClosedGraphic)
-            renderer.sprite = ClosedGraphic;
+            rend.sprite = ClosedGraphic;
 
         col.enabled = true;
     }
@@ -49,7 +49,7 @@ public class Door : MonoBehaviour
         col.enabled = false;
 
         if (OpenGraphic)
-            renderer.sprite = OpenGraphic;
+            rend.sprite = OpenGraphic;
 
         if (HideRoomContent)
             UnhideHidedContent();
@@ -70,7 +70,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        rend = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
     }
 }
