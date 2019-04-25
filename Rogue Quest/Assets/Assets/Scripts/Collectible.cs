@@ -36,8 +36,6 @@ public class Collectible : MonoBehaviour
     private bool BeingUsed;
     private SpriteRenderer Renderer;
     private BoxCollider2D col;
-    private float lastHighlightTime = 0f;
-    private float HighlightFrequency = 2f;
 
     public void Collect(GameObject owner)
     {
@@ -112,27 +110,16 @@ public class Collectible : MonoBehaviour
         var projectile = instance.GetComponent<Projectile>();
         projectile.Shooter = gameObject;
         projectile.Damage = WeaponDamage;
-        
+
         instance.GetComponent<Rigidbody2D>().AddForce(transform.right * WeaponProjectileSpeed);
         Physics2D.IgnoreCollision(instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!Collected)
         {
-            if (Time.time - lastHighlightTime > HighlightFrequency)
-            {
-                lastHighlightTime = Time.time;
-                var fadeOptions = new BlinkColorOptions();
-                fadeOptions.Color1 = Renderer.color;
-                fadeOptions.Color2 = Color.gray;
-                SendMessage("BlinkColor", fadeOptions, SendMessageOptions.DontRequireReceiver);
-                // var fadeOptions = new FadeOptions();
-                // fadeOptions.newColor = Color.yellow;
-                // SendMessage("Fade", fadeOptions, SendMessageOptions.DontRequireReceiver);
-            }
+            SendMessage("BlinkColor", SpecialFX.GetDefaultOptionsBlink(Renderer), SendMessageOptions.DontRequireReceiver);
         }
         else if (Collected && !BeingUsed)
         {

@@ -19,10 +19,6 @@ public class Chest : MonoBehaviour
     private SpriteRenderer rend;
     private BoxCollider2D col;
 
-    private float lastHighlightTime = 0f;
-    private float HighlightFrequency = 2f;
-
-
     public bool TryOpen(Collectible key = null, GameObject opener = null)
     {
         if (RequiredTypedKey != KeyType.None)
@@ -41,7 +37,12 @@ public class Chest : MonoBehaviour
         IsOpen = false;
 
         if (ClosedGraphic)
+        {
             rend.sprite = ClosedGraphic;
+            var color = rend.material.color;
+            color.a = 1f;
+            rend.material.color = color;
+        }
 
         col.enabled = true;
     }
@@ -100,7 +101,6 @@ public class Chest : MonoBehaviour
         CreateTreasures();
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -111,14 +111,7 @@ public class Chest : MonoBehaviour
     {
         if (!IsOpen)
         {
-            if (Time.time - lastHighlightTime > HighlightFrequency)
-            {
-                lastHighlightTime = Time.time;
-                var fadeOptions = new BlinkColorOptions();
-                fadeOptions.Color1 = rend.color;
-                fadeOptions.Color2 = Color.gray;
-                SendMessage("BlinkColor", fadeOptions, SendMessageOptions.DontRequireReceiver);
-            }
+            SendMessage("BlinkColor", SpecialFX.GetDefaultOptionsBlink(rend), SendMessageOptions.DontRequireReceiver);
         }
     }
 }

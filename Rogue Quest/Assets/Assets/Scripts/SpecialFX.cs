@@ -24,6 +24,20 @@ public class SpecialFX : MonoBehaviour
 {
     SpriteRenderer renderer;
 
+    public float FadeFrequency = 2f;
+    public float BlinkFrequency = 2f;
+
+    private float lastFadeTime = 0f;
+    private float lastBlinkTime = 0f;
+
+    public static BlinkColorOptions GetDefaultOptionsBlink(SpriteRenderer renderer)
+    {
+        var fadeOptions = new BlinkColorOptions();
+        fadeOptions.Color1 = renderer.color;
+        fadeOptions.Color2 = Color.gray;
+        return fadeOptions;
+    }
+
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -31,13 +45,21 @@ public class SpecialFX : MonoBehaviour
 
     public void Fade(FadeOptions options)
     {
-        options.oldColor = renderer.material.color;
-        StartCoroutine(FadeFx(options));
+        if (Time.time - lastFadeTime > FadeFrequency)
+        {
+            lastFadeTime = Time.time;
+            options.oldColor = renderer.material.color;
+            StartCoroutine(FadeFx(options));
+        }
     }
 
     public void BlinkColor(BlinkColorOptions options)
     {
-        StartCoroutine(BlinkColorFx(options));
+        if (Time.time - lastBlinkTime > BlinkFrequency)
+        {
+            lastBlinkTime = Time.time;
+            StartCoroutine(BlinkColorFx(options));
+        }
     }
 
     IEnumerator BlinkColorFx(BlinkColorOptions options)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lava : MonoBehaviour
 {
+    // Diferent behaviour, instant kill
     public float DamagePerSecondAferResistance = 30f;
 
     // Start is called before the first frame update
