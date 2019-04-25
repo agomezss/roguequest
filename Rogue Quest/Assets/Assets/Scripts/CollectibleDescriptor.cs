@@ -38,7 +38,8 @@ public enum UniqueType
     None = 0,
     Key = 1,
     Trasure = 2,
-    QuestKey = 3
+    QuestKey = 3,
+    Gold = 4,
 }
 
 public enum EffectStat

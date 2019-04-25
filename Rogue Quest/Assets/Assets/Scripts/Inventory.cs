@@ -54,6 +54,10 @@ public class Inventory : MonoBehaviour
         {
             MainClothes = item;
         }
+        if(item.Type == CollectibleType.Unique && item.Unique == UniqueType.Gold)
+        {
+            Gold += (int)item.WorthPoints;
+        }
         else if (StoredItems.Count < StoreCapacity)
         {
             StoredItems.Add(item);

@@ -80,7 +80,7 @@ public class Chest : MonoBehaviour
     {
         foreach (var item in Enemies)
         {
-            var position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
+            var position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             Instantiate(item, position, Quaternion.identity);
         }
     }
