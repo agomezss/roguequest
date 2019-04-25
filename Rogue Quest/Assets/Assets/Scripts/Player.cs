@@ -25,10 +25,12 @@ public class Player : MonoBehaviour
 
         if (horizontal < 0f)
         {
+            state.HideShield();
             state.MoveLeft();
         }
         else if (horizontal > 0f)
         {
+            state.HideShield();
             state.MoveRight();
         }
         else if (horizontal == 0f)
@@ -49,11 +51,19 @@ public class Player : MonoBehaviour
 
         if (SimpleInput.GetButton("Fire1"))
         {
+            state.HideShield();
             state.UseWeapon();
         }
-        else if (SimpleInput.GetButton("Fire2"))
+        else
         {
-            state.UseShield();
+            if (SimpleInput.GetButtonDown("Fire2"))
+            {
+                state.UseShield();
+            }
+            else if (SimpleInput.GetButtonUp("Fire2"))
+            {
+                state.HideShield();
+            }
         }
 
         if (SimpleInput.GetButton("Jump"))

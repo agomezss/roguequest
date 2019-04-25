@@ -183,13 +183,13 @@ public class BehaviourState : MonoBehaviour
 
     IEnumerator AttackAsync()
     {
-        if (IsAttacking || 
-            Inventory == null || Inventory.MainWeapon == null || 
+        if (IsAttacking ||
+            Inventory == null || Inventory.MainWeapon == null ||
             Inventory.MainWeapon.WeaponQuantity == 0) yield break;
 
         IsShielded = false;
         IsAttacking = true;
-        
+
         var weapon = Inventory.MainWeapon;
 
         if (weapon) weapon.Use();
@@ -214,7 +214,20 @@ public class BehaviourState : MonoBehaviour
         var shield = Inventory.MainShield;
         if (shield) shield.Use();
 
-        anims.Play("defend");
+        //anims.Play("defend");
+    }
+
+    public void HideShield()
+    {
+        if (!IsShielded) return;
+
+        IsShielded = false;
+
+        var shield = Inventory.MainShield;
+        if (shield) shield.UnUse();
+
+        anims.Play("idle");
+
     }
 
     void Update()
