@@ -15,15 +15,6 @@ public enum EquipableType
     Other = 5
 }
 
-public enum WeaponType
-{
-    None,
-    RegularWeapon, // ie: sword, dagger, knife, staff
-    WithProjectile, // ie: bow
-    SelfProjectile, // ie: shuriken, magic
-    ThrowDistanceThanBack // ie: boomerang
-}
-
 public enum EquipableRarity
 {
     Common = 1,

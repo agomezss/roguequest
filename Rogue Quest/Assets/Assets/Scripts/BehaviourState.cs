@@ -192,7 +192,7 @@ public class BehaviourState : MonoBehaviour
 
         var weapon = Inventory.MainWeapon;
 
-        if (weapon) weapon.Use();
+        if (weapon) weapon.Use(gameObject);
         anims.Play("attack");
 
         yield return new WaitForSeconds(RestrictWeaponUsagePerSecond);
@@ -212,7 +212,7 @@ public class BehaviourState : MonoBehaviour
         IsAttacking = false;
 
         var shield = Inventory.MainShield;
-        if (shield) shield.Use();
+        if (shield) shield.Use(gameObject);
 
         anims.Play("defend");
     }

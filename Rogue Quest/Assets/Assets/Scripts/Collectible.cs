@@ -14,9 +14,10 @@ public class Collectible : MonoBehaviour
     public EquipableType EquipType;
     public UniqueType Unique;
     public EquipableRarity Rarity;
-    public WeaponType Weapon;
     public GameObject WeaponProjectile;
     public int WeaponProjectileQuantity; // -1 for infinite
+    public float WeaponProjectileUsePerSecond = 0.5f;
+    public float WeaponProjectileLastUsedTime = 0f;
     public float WeaponProjectileSpeed = 10f;
     public int WeaponQuantity = 1;
     public float WeaponDurability = -1f;
@@ -59,9 +60,17 @@ public class Collectible : MonoBehaviour
     }
 
     // Attack, defend, drink
-    public void Use()
+    public void Use(GameObject user)
     {
         BeingUsed = true;
+
+        if (WeaponProjectileQuantity > 0 &&
+            Time.time - WeaponProjectileLastUsedTime > WeaponProjectileUsePerSecond)
+        {
+            WeaponProjectileLastUsedTime = Time.time;
+            WeaponProjectileQuantity--;
+            ShootProjectile(user);
+        }
     }
 
     public void UnUse()
@@ -104,19 +113,29 @@ public class Collectible : MonoBehaviour
             enemyStats.GetDamage(WeaponDamage);
     }
 
-    public void Shoot()
+    public void ShootProjectile(GameObject shooter)
     {
+        var direction = Vector2.right;
+        var sign = Mathf.Sign(transform.localScale.x);
+        if (sign < 0) direction = Vector2.left;
+
         var instance = Instantiate(WeaponProjectile, transform.position, Quaternion.identity);
+        instance.transform.localScale = new Vector2(transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
+
         var projectile = instance.GetComponent<Projectile>();
-        projectile.Shooter = gameObject;
+        projectile.Shooter = shooter;
         projectile.Damage = WeaponDamage;
 
-        instance.GetComponent<Rigidbody2D>().AddForce(transform.right * WeaponProjectileSpeed);
+        instance.GetComponent<Rigidbody2D>().AddForce(direction * WeaponProjectileSpeed);
         Physics2D.IgnoreCollision(instance.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+        Destroy(instance, 2f);
     }
 
     void Update()
     {
+        var weaponYOffset = .15f;
+
         if (!Collected)
         {
             SendMessage("BlinkColor", SpecialFX.GetDefaultOptionsBlink(Renderer), SendMessageOptions.DontRequireReceiver);
@@ -124,6 +143,8 @@ public class Collectible : MonoBehaviour
         else if (Collected && !BeingUsed)
         {
             Renderer.enabled = false;
+            transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y + weaponYOffset);
+            transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
         else if (BeingUsed && !HideWhenShoot &&
            (EquipType == EquipableType.Weapon ||
@@ -135,7 +156,6 @@ public class Collectible : MonoBehaviour
             // If us being used update position relative to owner
             if (Owner && Owner.transform)
             {
-                var weaponYOffset = .15f;
                 transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y + weaponYOffset);
                 transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
             }
