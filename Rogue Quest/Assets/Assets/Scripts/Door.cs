@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Door : MonoBehaviour
 {
     public bool DestroyOnOpen;
@@ -67,7 +66,6 @@ public class Door : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         rend = GetComponent<SpriteRenderer>();

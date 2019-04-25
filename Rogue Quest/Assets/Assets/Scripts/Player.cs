@@ -8,14 +8,12 @@ public class Player : MonoBehaviour
     private BehaviourState state;
     private Inventory inventory;
 
-    // Start is called before the first frame update
     void Awake()
     {
         state = GetComponent<BehaviourState>();
         inventory = GetComponent<Inventory>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         InputDetection();
@@ -76,35 +74,46 @@ public class Player : MonoBehaviour
     {
         if (other.transform.CompareTag("Object"))
         {
-            var door = other.gameObject.GetComponent<Door>();
-            if (door)
+            if (!DoorCheck(other))
             {
-                var simpleLock = door.TryOpen();
-
-                if (!simpleLock)
-                {
-                    var requiredKey = inventory.SearchKey(door.RequiredTypedKey, door.SpecificKeyName);
-                    if (requiredKey != null)
-                    {
-                        door.TryOpen(requiredKey);
-                    }
-                }
-            }
-
-            var chest = other.gameObject.GetComponent<Chest>();
-            if (chest)
-            {
-                var simpleLock = chest.TryOpen(null,gameObject);
-
-                if (!simpleLock)
-                {
-                    var requiredKey = inventory.SearchKey(chest.RequiredTypedKey, chest.SpecificKeyName);
-                    if (requiredKey != null)
-                    {
-                        chest.TryOpen(requiredKey, gameObject);
-                    }
-                }
+                ChestCheck(other);
             }
         }
+    }
+
+    private bool ChestCheck(Collision2D other)
+    {
+        var chest = other.gameObject.GetComponent<Chest>();
+        if (chest)
+        {
+            var simpleLock = chest.TryOpen(null, gameObject);
+            if (simpleLock) return true;
+
+            var requiredKey = inventory.SearchKey(chest.RequiredTypedKey, chest.SpecificKeyName);
+            if (requiredKey != null)
+            {
+                chest.TryOpen(requiredKey, gameObject);
+            }
+        }
+
+        return false;
+    }
+
+    private bool DoorCheck(Collision2D other)
+    {
+        var door = other.gameObject.GetComponent<Door>();
+        if (door)
+        {
+            var simpleLock = door.TryOpen();
+            if (simpleLock) return true;
+
+            var requiredKey = inventory.SearchKey(door.RequiredTypedKey, door.SpecificKeyName);
+            if (requiredKey != null)
+            {
+                return door.TryOpen(requiredKey);
+            }
+        }
+
+        return false;
     }
 }
