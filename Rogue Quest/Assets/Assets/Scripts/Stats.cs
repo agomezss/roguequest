@@ -66,6 +66,9 @@ public class Stats : MonoBehaviour
     {
         var rest = TemporaryLife - damage;
         Life -= rest;
+
+        // TODO: SFX Damage
+
         if (Life < 0) Life = 0;
     }
 

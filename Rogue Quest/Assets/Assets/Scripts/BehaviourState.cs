@@ -27,9 +27,8 @@ public class BehaviourState : MonoBehaviour
     public bool IsLaddered;
     public bool IsUnderLiquid;
 
-    private float LastWeaponUsedTime = 0f;
     private float LastJump = 0f;
-    private float RestrictWeaponUsagePerSecond = 0.4f;
+    private float RestrictWeaponUsagePerSecond = 0.3f;
 
     void Awake()
     {
@@ -179,16 +178,28 @@ public class BehaviourState : MonoBehaviour
 
     public void UseWeapon()
     {
-        if (Time.time - LastWeaponUsedTime < RestrictWeaponUsagePerSecond) return;
-        if (Inventory == null || Inventory.MainWeapon == null || Inventory.MainWeapon.WeaponQuantity == 0) return;
+        StartCoroutine(AttackAsync());
+    }
+
+    IEnumerator AttackAsync()
+    {
+        if (IsAttacking || 
+            Inventory == null || Inventory.MainWeapon == null || 
+            Inventory.MainWeapon.WeaponQuantity == 0) yield break;
 
         IsShielded = false;
-        var lastWeaponUsedTime = Time.time;
+        IsAttacking = true;
+        
         var weapon = Inventory.MainWeapon;
 
-        if (weapon) weapon.Use(gameObject);
-
+        if (weapon) weapon.Use();
         anims.Play("attack");
+
+        yield return new WaitForSeconds(RestrictWeaponUsagePerSecond);
+
+        if (weapon) weapon.UnUse();
+        IsAttacking = false;
+        anims.Play("idle");
     }
 
     // Could mean climb ladder or jump
@@ -198,9 +209,10 @@ public class BehaviourState : MonoBehaviour
            Inventory.MainShield == null || Inventory.MainShield.WeaponDurability == 0) return;
 
         IsShielded = true;
+        IsAttacking = false;
 
         var shield = Inventory.MainShield;
-        if (shield) shield.Use(gameObject);
+        if (shield) shield.Use();
 
         anims.Play("defend");
     }

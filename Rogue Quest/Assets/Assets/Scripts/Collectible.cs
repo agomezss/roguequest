@@ -50,19 +50,17 @@ public class Collectible : MonoBehaviour
             inventory.Add(this);
         }
 
-        Renderer.enabled = false;
-        Collected = true;
-
-
         Color restoredColor = Color.white;
         restoredColor.a = 1f;
         Renderer.color = restoredColor;
+        Renderer.enabled = false;
+
+        Collected = true;
     }
 
     // Attack, defend, drink
-    public void Use(GameObject owner)
+    public void Use()
     {
-        Owner = owner;
         BeingUsed = true;
     }
 
@@ -84,15 +82,17 @@ public class Collectible : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Collected) return;
-
-        if (other.transform.CompareTag("Player"))
+        if (other.transform.CompareTag("Player") ||
+            other.transform.CompareTag("Enemy"))
         {
-            Collect(other.gameObject);
-        }
-        else if (other.transform.CompareTag("Enemy"))
-        {
-            ApplyDamage(other.gameObject);
+            if (!Collected)
+            {
+                Collect(other.gameObject);
+            }
+            else if (other.gameObject != Owner)
+            {
+                ApplyDamage(other.gameObject);
+            }
         }
     }
 
@@ -133,7 +133,9 @@ public class Collectible : MonoBehaviour
             // If us being used update position relative to owner
             if (Owner && Owner.transform)
             {
-                transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y);
+                var weaponYOffset = .15f;
+                transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y + weaponYOffset);
+                transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f *  Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x),transform.localScale.y);
             }
         }
     }

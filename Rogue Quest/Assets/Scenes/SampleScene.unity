@@ -9492,6 +9492,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4766989815941197354, guid: f1107e7054403c24dbeac8b07e543cde,
+        type: 3}
+      propertyPath: WeaponQuantity
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1107e7054403c24dbeac8b07e543cde, type: 3}
 --- !u!1001 &678669647650375090
@@ -10193,6 +10198,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8409096801326658659, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: AttackingRepeat
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8409096801326658659, guid: ed36094c298875040a7ef6a3c7e32286,
+        type: 3}
+      propertyPath: AttackingSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed36094c298875040a7ef6a3c7e32286, type: 3}
 --- !u!4 &8677265155881865038 stripped
