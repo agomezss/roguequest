@@ -125,8 +125,10 @@ public class Collectible : MonoBehaviour
         {
             Renderer.enabled = false;
         }
-        else if (BeingUsed &&
-           (EquipType == EquipableType.Weapon || EquipType == EquipableType.Shield))
+        else if (BeingUsed && !HideWhenShoot &&
+           (EquipType == EquipableType.Weapon ||
+            EquipType == EquipableType.Shield)
+        )
         {
             Renderer.enabled = true;
 
@@ -135,7 +137,7 @@ public class Collectible : MonoBehaviour
             {
                 var weaponYOffset = .15f;
                 transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y + weaponYOffset);
-                transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f *  Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x),transform.localScale.y);
+                transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
             }
         }
     }

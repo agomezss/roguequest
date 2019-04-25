@@ -214,7 +214,7 @@ public class BehaviourState : MonoBehaviour
         var shield = Inventory.MainShield;
         if (shield) shield.Use();
 
-        //anims.Play("defend");
+        anims.Play("defend");
     }
 
     public void HideShield()
