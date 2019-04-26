@@ -737,12 +737,12 @@ PrefabInstance:
     - target: {fileID: 4527373382236275810, guid: 48762e55c7dc96747836b914d753b142,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527373382236275810, guid: 48762e55c7dc96747836b914d753b142,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4527373382236275810, guid: 48762e55c7dc96747836b914d753b142,
         type: 3}
@@ -9939,6 +9939,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300234, guid: b98eec9b868a8ec479ec8da7978e1794,
         type: 3}
+    - target: {fileID: 5740699623208673952, guid: 368094ca72b26b048a0300680617d7fe,
+        type: 3}
+      propertyPath: AttackingSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740699623208673952, guid: 368094ca72b26b048a0300680617d7fe,
+        type: 3}
+      propertyPath: AttackingRepeat
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4258174444697253106, guid: 368094ca72b26b048a0300680617d7fe,
         type: 3}
       propertyPath: MainWeapon
@@ -10117,12 +10127,12 @@ PrefabInstance:
     - target: {fileID: 3012255779663385148, guid: e6daf9caf3d09254ab3e292a31fc6433,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.5
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 3012255779663385148, guid: e6daf9caf3d09254ab3e292a31fc6433,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3012255779663385148, guid: e6daf9caf3d09254ab3e292a31fc6433,
         type: 3}
@@ -10368,12 +10378,12 @@ PrefabInstance:
     - target: {fileID: 8409096801326658659, guid: ed36094c298875040a7ef6a3c7e32286,
         type: 3}
       propertyPath: AttackingRepeat
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8409096801326658659, guid: ed36094c298875040a7ef6a3c7e32286,
         type: 3}
       propertyPath: AttackingSpeed
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed36094c298875040a7ef6a3c7e32286, type: 3}

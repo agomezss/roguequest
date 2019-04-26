@@ -34,6 +34,7 @@ public class Collectible : MonoBehaviour
 
     private Sprite Graphic;
     private GameObject Owner;
+    private bool OwnerIsEnemy;
     private bool Collected;
     private bool BeingUsed;
     private SpriteRenderer Renderer;
@@ -44,6 +45,8 @@ public class Collectible : MonoBehaviour
         if (col) col.enabled = false;
         Owner = owner;
         Collected = true;
+
+        OwnerIsEnemy = owner.GetComponent<Enemy>() != null;
     }
 
     public void Collect(GameObject owner)
@@ -136,7 +139,9 @@ public class Collectible : MonoBehaviour
             if (Owner && Owner.transform)
             {
                 transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / WeaponXScaleEquiped), Owner.transform.position.y + WeaponYOffsetEquiped);
-                transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
+                
+                if(!OwnerIsEnemy)
+                    transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
 
                 if (transform.rotation.eulerAngles.z != 0f)
                     transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Sign(Owner.transform.localScale.x) < 0f ? 45f : -45f));

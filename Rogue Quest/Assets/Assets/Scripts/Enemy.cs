@@ -261,16 +261,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.transform.CompareTag("Object"))
-        {
-            // if (!DoorCheck(other))
-            // {
-            //     ChestCheck(other);
-            // }
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.transform.CompareTag("Object"))
+    //     {
+    //         // if (!DoorCheck(other))
+    //         // {
+    //         //     ChestCheck(other);
+    //         // }
+    //     }
+    // }
 
     // private bool DoorCheck(Collision2D other)
     // {
