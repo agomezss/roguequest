@@ -199,7 +199,11 @@ public class Enemy : MonoBehaviour
     private void Defend()
     {
         if (Time.time - DefendLastTime < DefendFrequency || RandomAttackFrequency == 0) return;
-        StartCoroutine(DefendAsync());
+
+        // TODO: Check if being attacked
+        // TODO: Prevent Projectiles
+
+        //StartCoroutine(DefendAsync());
     }
 
      IEnumerator DefendAsync()

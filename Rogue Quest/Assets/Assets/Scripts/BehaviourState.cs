@@ -30,15 +30,6 @@ public class BehaviourState : MonoBehaviour
     private float LastJump = 0f;
     private float RestrictWeaponUsagePerSecond = 0.3f;
 
-    void Awake()
-    {
-        anims = GetComponent<AnimedTile>();
-        Stats = GetComponent<Stats>();
-        Inventory = GetComponent<Inventory>();
-        rb2d = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
-    }
-
     public void GetIdle()
     {
         rb2d.velocity = Vector2.Lerp(rb2d.velocity, new Vector2(0f, rb2d.velocity.y), 0.5f);
@@ -230,12 +221,6 @@ public class BehaviourState : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        if (IsDead) return;
-        UpdateLookingObject();
-        CheckGrounded();
-    }
 
     void UpdateLookingObject()
     {
@@ -268,6 +253,22 @@ public class BehaviourState : MonoBehaviour
             rb2d.gravityScale = 1f;
             IsGrounded = false;
         }
+    }
+    
+    void Awake()
+    {
+        anims = GetComponent<AnimedTile>();
+        Stats = GetComponent<Stats>();
+        Inventory = GetComponent<Inventory>();
+        rb2d = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>();
+    }
+
+    void Update()
+    {
+        if (IsDead) return;
+        UpdateLookingObject();
+        CheckGrounded();
     }
 
     void OnTriggerStay2D(Collider2D other)
