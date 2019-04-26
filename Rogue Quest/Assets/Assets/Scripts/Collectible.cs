@@ -19,8 +19,8 @@ public class Collectible : MonoBehaviour
     public float WeaponProjectileUsePerSecond = 0.5f;
     public float WeaponProjectileLastUsedTime = 0f;
     public float WeaponProjectileSpeed = 10f;
-    public int WeaponQuantity = 1;
-    public float WeaponDurability = -1f;
+    public int WeaponQuantity = 1; // -1 for infinite
+    public float WeaponDurability = -1f; // -1 for infinite
     public float WeaponDamage = 10f;
     public bool HideWhenShoot;
     public EffectType EffectType;
@@ -28,7 +28,8 @@ public class Collectible : MonoBehaviour
     public float WorthPoints;
     public float WorthPercentage;
     public float WorthDuration;
-
+    public float WeaponYOffsetEquiped = .15f;
+    public float WeaponXScaleEquiped = 1.5f;
     public KeyType SpecificKeyType;
 
     private Sprite Graphic;
@@ -59,7 +60,6 @@ public class Collectible : MonoBehaviour
         Collected = true;
     }
 
-    // Attack, defend, drink
     public void Use(GameObject user)
     {
         BeingUsed = true;
@@ -76,41 +76,6 @@ public class Collectible : MonoBehaviour
     public void UnUse()
     {
         BeingUsed = false;
-    }
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        UID = Guid.NewGuid().ToString();
-        Renderer = GetComponent<SpriteRenderer>();
-        col = GetComponent<BoxCollider2D>();
-
-        if (Renderer && Renderer.sprite)
-            Graphic = Renderer.sprite;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.transform.CompareTag("Player") ||
-            other.transform.CompareTag("Enemy"))
-        {
-            if (!Collected)
-            {
-                Collect(other.gameObject);
-            }
-            else if (other.gameObject != Owner)
-            {
-                ApplyDamage(other.gameObject);
-            }
-        }
-    }
-
-    void ApplyDamage(GameObject obj)
-    {
-        var enemyStats = obj.GetComponent<Stats>();
-
-        if (enemyStats)
-            enemyStats.GetDamage(WeaponDamage);
     }
 
     public void ShootProjectile(GameObject shooter)
@@ -132,33 +97,58 @@ public class Collectible : MonoBehaviour
         Destroy(instance, 2f);
     }
 
+    void ApplyDamage(GameObject obj)
+    {
+        var enemyStats = obj.GetComponent<Stats>();
+
+        if (enemyStats)
+            enemyStats.GetDamage(WeaponDamage);
+    }
+
+    void Awake()
+    {
+        UID = Guid.NewGuid().ToString();
+        Renderer = GetComponent<SpriteRenderer>();
+        col = GetComponent<BoxCollider2D>();
+
+        if (Renderer && Renderer.sprite)
+            Graphic = Renderer.sprite;
+    }
+
     void Update()
     {
-        var weaponYOffset = .15f;
-
         if (!Collected)
         {
             SendMessage("BlinkColor", SpecialFX.GetDefaultOptionsBlink(Renderer), SendMessageOptions.DontRequireReceiver);
         }
-        else if (Collected && !BeingUsed)
+        else
         {
-            Renderer.enabled = false;
-            transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y + weaponYOffset);
-            transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
-        }
-        else if (BeingUsed && !HideWhenShoot &&
-           (EquipType == EquipableType.Weapon ||
-            EquipType == EquipableType.Shield)
-        )
-        {
-            Renderer.enabled = true;
+            Renderer.enabled = BeingUsed && !HideWhenShoot &&
+                                (EquipType == EquipableType.Weapon ||
+                                    EquipType == EquipableType.Shield);
 
-            // If us being used update position relative to owner
             if (Owner && Owner.transform)
             {
-                transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / 1.5f), Owner.transform.position.y + weaponYOffset);
+                transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / WeaponXScaleEquiped), Owner.transform.position.y + WeaponYOffsetEquiped);
                 transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Player") ||
+            other.transform.CompareTag("Enemy"))
+        {
+            if (!Collected)
+            {
+                Collect(other.gameObject);
+            }
+            else if (other.gameObject != Owner)
+            {
+                ApplyDamage(other.gameObject);
+            }
+        }
+    }
+
 }
