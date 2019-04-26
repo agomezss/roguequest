@@ -131,11 +131,14 @@ public class Collectible : MonoBehaviour
             {
                 transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / WeaponXScaleEquiped), Owner.transform.position.y + WeaponYOffsetEquiped);
                 transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
+
+                if (transform.rotation.eulerAngles.z != 0f)
+                    transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Mathf.Sign(Owner.transform.localScale.x) < 0f ? 45f : -45f));
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Player") ||
             other.transform.CompareTag("Enemy"))
