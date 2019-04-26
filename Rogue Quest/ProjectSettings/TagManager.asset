@@ -54,9 +54,12 @@ TagManager:
   - name: WALL
     uniqueID: 2473387445
     locked: 0
-  - name: OBJ
-    uniqueID: 3791230711
+  - name: ENEMY
+    uniqueID: 3407012797
     locked: 0
   - name: PLAYER
     uniqueID: 2189142515
+    locked: 0
+  - name: OBJ
+    uniqueID: 3791230711
     locked: 0

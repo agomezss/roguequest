@@ -126,9 +126,10 @@ MonoBehaviour:
   EquipType: 2
   Unique: 0
   Rarity: 1
-  Weapon: 1
   WeaponProjectile: {fileID: 0}
   WeaponProjectileQuantity: 0
+  WeaponProjectileUsePerSecond: 0.5
+  WeaponProjectileLastUsedTime: 0
   WeaponProjectileSpeed: 10
   WeaponQuantity: -1
   WeaponDurability: -1
@@ -139,6 +140,8 @@ MonoBehaviour:
   WorthPoints: 0
   WorthPercentage: 0
   WorthDuration: 0
+  WeaponYOffsetEquiped: 0
+  WeaponXScaleEquiped: 1.5
   SpecificKeyType: 0
 --- !u!114 &6996166188487662428
 MonoBehaviour:

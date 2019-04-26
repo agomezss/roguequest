@@ -55,6 +55,7 @@ public class Chest : MonoBehaviour
 
         if (OpenGraphic)
         {
+            rend.sortingLayerName = "BG";
             rend.sprite = OpenGraphic;
             var color = rend.material.color;
             color.a = 0.25f;

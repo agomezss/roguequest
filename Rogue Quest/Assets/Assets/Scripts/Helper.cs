@@ -34,6 +34,30 @@ public class Helper : MonoBehaviour
         return null;
     }
 
+    public static string RaycastDiagonal(Transform transform, BoxCollider2D col, int lookdirection)
+    {
+        var halfColliderSizeY = (col.size.y / 3);
+        var halfColliderSizeX = (col.size.x / 3);
+        var lookOffset = 0.4f;
+        var looksize = 0.4f;
+        var posIni = new Vector2(transform.position.x + (lookdirection * (halfColliderSizeX + lookOffset)), transform.position.y + (-1 * halfColliderSizeY));
+        var endPos = new Vector2(transform.position.x + (lookdirection * (halfColliderSizeX + looksize)), transform.position.y + (-1 * (halfColliderSizeY + looksize)));
+        Debug.DrawLine(posIni, endPos);
+
+        int mask = 1 << LayerMask.NameToLayer("WALL");
+        mask = mask | 1 << LayerMask.NameToLayer("LADDER");
+        mask = mask | 1 << LayerMask.NameToLayer("Water");
+
+        var hit = Physics2D.Linecast(posIni, endPos, mask);
+
+        if (hit.transform != null)
+        {
+            return hit.transform.tag;
+        }
+
+        return null;
+    }
+
     public static string RaycastHorizontal(Transform transform, BoxCollider2D col, int mask, float looksize = 0.4f)
     {
         var halfColliderSizeX = (col.size.x / 3);

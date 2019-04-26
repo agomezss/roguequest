@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject Owner;
-
     public List<Collectible> StoredItems = new List<Collectible>();
     public int StoreCapacity = 20;
     public int Gold;
