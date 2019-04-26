@@ -39,12 +39,15 @@ public class Collectible : MonoBehaviour
     private SpriteRenderer Renderer;
     private BoxCollider2D col;
 
+    public void Attach(GameObject owner)
+    {
+        if (col) col.enabled = false;
+        Owner = owner;
+        Collected = true;
+    }
+
     public void Collect(GameObject owner)
     {
-        col.enabled = false;
-
-        Owner = owner;
-
         var inventory = owner.GetComponent<Inventory>();
 
         if (inventory)
@@ -52,12 +55,15 @@ public class Collectible : MonoBehaviour
             inventory.Add(this);
         }
 
-        Color restoredColor = Color.white;
-        restoredColor.a = 1f;
-        Renderer.color = restoredColor;
-        Renderer.enabled = false;
+        if (Renderer)
+        {
+            Color restoredColor = Color.white;
+            restoredColor.a = 1f;
+            Renderer.color = restoredColor;
+            Renderer.enabled = false;
+        }
 
-        Collected = true;
+        Attach(owner);
     }
 
     public void Use(GameObject user)

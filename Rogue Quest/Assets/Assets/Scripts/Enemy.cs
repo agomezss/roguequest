@@ -87,11 +87,11 @@ public class Enemy : MonoBehaviour
 
     private void InputSimulation()
     {
+        Jump();
         Move();
         Look();
-        //Jump();
-        //Attack();
-        //Deffend();
+        Attack();
+        Defend();
     }
 
     private void Look()
@@ -159,17 +159,60 @@ public class Enemy : MonoBehaviour
 
     private void Jump()
     {
-        throw new NotImplementedException();
+        if (Time.time - JumpLastTime < JumpFrequency || jump || JumpFrequency == 0) return;
+        StartCoroutine(JumpAsync());
     }
+
+    IEnumerator JumpAsync()
+    {
+        JumpLastTime = Time.time;
+
+        if (!Randomness(JumpRandomness)) yield break;
+
+        jump = true;
+
+        yield return new WaitForSeconds(1f);
+
+        jump = false;
+    }
+
 
     private void Attack()
     {
-        throw new NotImplementedException();
+        if (Time.time - RandomAttackLastTime < RandomAttackFrequency || RandomAttackFrequency == 0) return;
+        StartCoroutine(AttackAsync());
     }
 
-    private void Deffend()
+    IEnumerator AttackAsync()
     {
-        throw new NotImplementedException();
+        RandomAttackLastTime = Time.time;
+
+        if (!Randomness(RandomAttackRandomness)) yield break;
+
+        fire1 = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        fire1 = false;
+    }
+
+    private void Defend()
+    {
+        if (Time.time - DefendLastTime < DefendFrequency || RandomAttackFrequency == 0) return;
+        StartCoroutine(DefendAsync());
+    }
+
+     IEnumerator DefendAsync()
+    {
+        DefendLastTime = Time.time;
+
+        if (!Randomness(DefendRandomness)) yield break;
+
+        fire2 = true;
+
+        yield return new WaitForSeconds(0.5f);
+
+        fire2 = false;
     }
 
     private void InputDetection()
@@ -192,6 +235,7 @@ public class Enemy : MonoBehaviour
         if (jump || vertical > 0f)
         {
             state.MoveUp();
+            jump = false;
         }
         else if (vertical < 0f)
         {
@@ -202,6 +246,7 @@ public class Enemy : MonoBehaviour
         {
             state.HideShield();
             state.UseWeapon();
+            fire1 = false;
         }
         else
         {

@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
         {
             MainClothes = item;
         }
-        if(item.Type == CollectibleType.Unique && item.Unique == UniqueType.Gold)
+        if (item.Type == CollectibleType.Unique && item.Unique == UniqueType.Gold)
         {
             Gold += (int)item.WorthPoints;
         }
@@ -148,15 +148,27 @@ public class Inventory : MonoBehaviour
         DropGold();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void AttachAll()
     {
+        foreach (var item in StoredItems)
+        {
+            Attach(item);
+        }
 
+        Attach(MainWeapon);
+        Attach(MainShield);
+        Attach(MainRing);
+        Attach(MainClothes);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Attach(Collectible item)
     {
+        if (item != null)
+            item.Attach(gameObject);
+    }
 
+    void Awake()
+    {
+        AttachAll();
     }
 }
