@@ -3393,10 +3393,10 @@ MonoBehaviour:
   JumpRandomness: 5
   AvoidFall: 1
   AvoidWalls: 1
-  IsChaser: 0
-  AttackWhenSeenTarget: 0
-  AttackWhenSeenTargetFrequency: 2
   AttackWhenSeenTargetRandomness: 5
+  AttackTargetSightDistance: 2
+  LongDistanceSight: 4
+  LongDistanceTargetSeen: 
   RandomAttackFrequency: 2
   RandomAttackRandomness: 5
   DefendFrequency: 0
@@ -9750,6 +9750,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skull
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740699623208674008, guid: 368094ca72b26b048a0300680617d7fe,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740699623208674008, guid: 368094ca72b26b048a0300680617d7fe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5740699623208674009, guid: 368094ca72b26b048a0300680617d7fe,
         type: 3}

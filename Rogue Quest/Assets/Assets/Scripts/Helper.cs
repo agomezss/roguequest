@@ -58,7 +58,7 @@ public class Helper : MonoBehaviour
         return null;
     }
 
-    public static string RaycastHorizontal(Transform transform, BoxCollider2D col, int mask, float looksize = 0.4f)
+    public static string RaycastHorizontal(Transform transform, BoxCollider2D col, int mask, float looksize = 0.5f)
     {
         var halfColliderSizeX = (col.size.x / 3);
         var lookdirection = Mathf.Sign(transform.localScale.x);

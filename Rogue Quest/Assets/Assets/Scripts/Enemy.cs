@@ -24,17 +24,21 @@ public class Enemy : MonoBehaviour
     public int JumpRandomness = 5;
     private float JumpLastTime = 0f;
 
-
     public bool AvoidFall = true;
     public bool AvoidWalls = true;
 
-    public bool IsChaser = false;
-    public bool AttackWhenSeenTarget = false;
-    public float AttackWhenSeenTargetFrequency = 2f;
 
     [Range(0, 10)]
-    public int AttackWhenSeenTargetRandomness = 5;
+    public int AttackWhenSeenTargetRandomness = 0;
+    [Range(1f, 10f)]
+    public float AttackTargetSightDistance = 2f;
     private float AttackWhenSeenTargetLastTime = 0f;
+
+
+    [Range(0f, 10f)]
+    public float LongDistanceSight = 2f;
+    public string LongDistanceTargetSeen;
+    private float LongDistanceTargetSeenTime = 0f;
 
 
     public float RandomAttackFrequency = 2f;
@@ -84,9 +88,20 @@ public class Enemy : MonoBehaviour
     private void InputSimulation()
     {
         Move();
+        Look();
         //Jump();
         //Attack();
         //Deffend();
+    }
+
+    private void Look()
+    {
+        if (Time.time - LongDistanceTargetSeenTime < 0.1f) return;
+
+        int mask = 1 << LayerMask.NameToLayer("WALL");
+        mask = mask | (1 << LayerMask.NameToLayer("PLAYER"));
+
+        LongDistanceTargetSeen = Helper.RaycastHorizontal(transform, col, mask, LongDistanceSight);
     }
 
     private bool Randomness(int favorable)
@@ -114,7 +129,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = 0; i < totalSteps; i++)
         {
-            if (CheckNotFall(hrand))
+            if (CheckNotFall(hrand) && CheckNotBounceWall())
             {
                 horizontal = hrand;
             }
@@ -132,6 +147,7 @@ public class Enemy : MonoBehaviour
 
     private bool CheckNotBounceWall()
     {
+        if (AvoidWalls) return true;
         return state.LookingObject != "GroundWall";
     }
 
