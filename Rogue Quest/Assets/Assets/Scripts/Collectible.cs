@@ -153,5 +153,4 @@ public class Collectible : MonoBehaviour
             }
         }
     }
-
 }

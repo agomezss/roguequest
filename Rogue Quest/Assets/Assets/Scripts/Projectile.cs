@@ -10,14 +10,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            if ((Shooter.CompareTag("Player") && other.CompareTag("Enemy")) ||
+        if ((Shooter.CompareTag("Player") && other.CompareTag("Enemy")) ||
                 (Shooter.CompareTag("Enemy") && other.CompareTag("Player")))
-            {
-                ApplyDamage(other.gameObject);
-                Destroy(gameObject);
-            }
+        {
+            ApplyDamage(other.gameObject);
+            Destroy(gameObject);
+        }
+        else if (other.transform.CompareTag("GroundWall"))
+        {
+            Destroy(gameObject);
         }
     }
 
