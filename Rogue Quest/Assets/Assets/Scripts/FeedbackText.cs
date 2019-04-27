@@ -47,17 +47,15 @@ public class FeedbackText : MonoBehaviour
 
     private void Awake()
     {
+        InfoText.enabled = false;
+        NameText.enabled = false;
+    }
+
+    public void LoadTexts()
+    {
         if (transform.parent && transform.parent.gameObject)
             parent = transform.parent.gameObject;
 
-        InfoText.enabled = false;
-        NameText.enabled = false;
-
-        InitialLoad();
-    }
-
-    private void InitialLoad()
-    {
         if (StatsOrCollectibleName)
         {
             var stats = parent.GetComponent<Stats>();

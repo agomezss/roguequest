@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class TextController : MonoBehaviour
 {
-    public static FeedbackText popupText;
-    private static GameObject canvas;
-
-    private void Awake()
+    public void CreateText(Transform location)
     {
-        canvas = GameObject.Find("Canvas");
-        popupText = Resources.Load<FeedbackText>("Prefabs/FeedbackText");
+        FeedbackText popupText = Resources.Load<FeedbackText>("FeedbackText");
+        var canvas = GameObject.Find("Canvas");
+        Vector2 screenPos = UnityEngine.Camera.main.WorldToScreenPoint(location.position);
+
         var instance = Instantiate(popupText);
-        instance.transform.SetParent(gameObject.transform);
+        instance.transform.SetParent(location.transform, false);
+        instance.transform.position = screenPos;
+        instance.LoadTexts();
     }
 }

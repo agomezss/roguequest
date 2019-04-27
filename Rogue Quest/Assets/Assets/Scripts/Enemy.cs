@@ -77,6 +77,8 @@ public class Enemy : MonoBehaviour
         state = GetComponent<BehaviourState>();
         inventory = GetComponent<Inventory>();
         col = GetComponent<BoxCollider2D>();
+
+        SendMessage("CreateText", transform, SendMessageOptions.DontRequireReceiver);
     }
 
     void Update()
