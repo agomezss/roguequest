@@ -55,7 +55,8 @@ public class FeedbackText : MonoBehaviour
     void Update()
     {
         transform.position = parent.transform.position;
-//        transform.localScale = new Vector2(Mathf.Abs(parent.transform.localScale.x), transform.localScale.y);
+        transform.localScale = new Vector2(parent.transform.localScale.x < 0 ? -1 : 1 * Mathf.Abs(parent.transform.localScale.x),
+                                           transform.localScale.y);
     }
 
     public void LoadTexts(Transform locationTarget)
