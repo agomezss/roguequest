@@ -8,12 +8,12 @@ public class TextController : MonoBehaviour
     public void CreateText(Transform location)
     {
         FeedbackText popupText = Resources.Load<FeedbackText>("FeedbackText");
-        var canvas = GameObject.Find("Canvas");
         Vector2 screenPos = UnityEngine.Camera.main.WorldToScreenPoint(location.position);
 
         var instance = Instantiate(popupText);
         instance.transform.SetParent(location.transform, false);
         instance.transform.position = screenPos;
-        instance.LoadTexts();
+
+        instance.LoadTexts(location);
     }
 }

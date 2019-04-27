@@ -12,6 +12,7 @@ public class FeedbackText : MonoBehaviour
     public Text InfoText;
 
     public GameObject parent;
+    GameObject locationParent;
 
     public void ShowText(string txt)
     {
@@ -51,10 +52,16 @@ public class FeedbackText : MonoBehaviour
         NameText.enabled = false;
     }
 
-    public void LoadTexts()
+    void Update()
     {
-        if (transform.parent && transform.parent.gameObject)
-            parent = transform.parent.gameObject;
+        transform.position = parent.transform.position;
+//        transform.localScale = new Vector2(Mathf.Abs(parent.transform.localScale.x), transform.localScale.y);
+    }
+
+    public void LoadTexts(Transform locationTarget)
+    {
+        if (locationTarget)
+            parent = locationTarget.gameObject;
 
         if (StatsOrCollectibleName)
         {
