@@ -18,6 +18,15 @@ public class BlinkColorOptions
     public Color Color2;
     public float Time = .05f;
     public bool returnOnEnd = true;
+
+     public static BlinkColorOptions Damage(SpriteRenderer renderer)
+    {
+        var fadeOptions = new BlinkColorOptions();
+        fadeOptions.Color1 = renderer.color;
+        fadeOptions.Color2 = Color.red;
+        fadeOptions.Time = .05f;
+        return fadeOptions;
+    }
 }
 
 public class SpecialFX : MonoBehaviour

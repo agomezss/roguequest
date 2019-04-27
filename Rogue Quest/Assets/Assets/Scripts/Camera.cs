@@ -70,15 +70,28 @@ public class Camera : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     void LateUpdate()
     {
         var newPosition = new Vector3(Target.transform.position.x, Target.transform.position.y, -100);
         transform.position = Vector3.Lerp(transform.position, newPosition, 0.98f);
+    }
+
+    public void GetDamageEffect()
+    {
+        StartCoroutine(DamageFX());
+    }
+
+    IEnumerator DamageFX()
+    {
+        var cam = UnityEngine.Camera.main;
+        var originalColor = cam.backgroundColor;
+
+        cam.backgroundColor = Color.red;
+        cam.cullingMask = 0;
+
+        yield return new WaitForSeconds(0.1f);
+
+        cam.cullingMask = -1;
+        cam.backgroundColor = originalColor;
     }
 }

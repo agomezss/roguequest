@@ -8,6 +8,14 @@ public class Player : MonoBehaviour
     private BehaviourState state;
     private Inventory inventory;
 
+    public void GotDamageFX()
+    {
+        var camera = UnityEngine.Camera.main.GetComponent<Camera>();
+
+        if (camera)
+            camera.GetDamageEffect();
+    }
+
     void Awake()
     {
         state = GetComponent<BehaviourState>();

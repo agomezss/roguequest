@@ -72,6 +72,11 @@ public class Enemy : MonoBehaviour
     private bool fire1;
     private bool fire2;
 
+    public void GotDamageFX()
+    {
+        SendMessage("BlinkColor", BlinkColorOptions.Damage(GetComponent<SpriteRenderer>()), SendMessageOptions.DontRequireReceiver);
+    }
+
     void Awake()
     {
         state = GetComponent<BehaviourState>();

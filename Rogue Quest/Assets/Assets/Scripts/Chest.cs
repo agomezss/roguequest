@@ -94,7 +94,7 @@ public class Chest : MonoBehaviour
 
             if (stats)
             {
-                stats.GetDamage(damage);
+                stats.GetDamage(damage + stats.GetStrength());
             }
         }
 

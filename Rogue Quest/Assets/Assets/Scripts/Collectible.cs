@@ -47,6 +47,8 @@ public class Collectible : MonoBehaviour
         Collected = true;
 
         OwnerIsEnemy = owner.GetComponent<Enemy>() != null;
+
+        BroadcastMessage("DestroyAllText", SendMessageOptions.DontRequireReceiver);
     }
 
     public void Collect(GameObject owner)
@@ -72,6 +74,7 @@ public class Collectible : MonoBehaviour
     public void Use(GameObject user)
     {
         BeingUsed = true;
+        if (col) col.enabled = true;
 
         if (WeaponProjectileQuantity > 0 &&
             Time.time - WeaponProjectileLastUsedTime > WeaponProjectileUsePerSecond)
@@ -84,6 +87,7 @@ public class Collectible : MonoBehaviour
 
     public void UnUse()
     {
+        if (col) col.enabled = false;
         BeingUsed = false;
     }
 
@@ -108,10 +112,10 @@ public class Collectible : MonoBehaviour
 
     void ApplyDamage(GameObject obj)
     {
-        var enemyStats = obj.GetComponent<Stats>();
+        var stats = obj.GetComponent<Stats>();
 
-        if (enemyStats)
-            enemyStats.GetDamage(WeaponDamage);
+        if (stats)
+            stats.GetDamage(WeaponDamage + stats.GetStrength());
     }
 
     void Awake()
@@ -122,6 +126,8 @@ public class Collectible : MonoBehaviour
 
         if (Renderer && Renderer.sprite)
             Graphic = Renderer.sprite;
+
+        SendMessage("CreateText", transform, SendMessageOptions.DontRequireReceiver);
     }
 
     void Update()

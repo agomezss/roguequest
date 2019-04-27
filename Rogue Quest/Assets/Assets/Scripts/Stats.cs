@@ -64,12 +64,34 @@ public class Stats : MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        var rest = TemporaryLife - damage;
-        Life -= rest;
+        var rawDamage = damage - GetDefense();
 
-        // TODO: SFX Damage
+        if (rawDamage <= 0)
+        {
+            BroadcastMessage("ShowInfo", "Defended!", SendMessageOptions.DontRequireReceiver);
+            return;
+        }
 
-        if (Life < 0) Life = 0;
+        var rest = TemporaryLife - rawDamage;
+        TemporaryLife -= rawDamage;
+
+        rest = rest < 0 ? rest * -1f : rest;
+
+        if (rest <= 0)
+        {
+            BroadcastMessage("ShowInfo", "Defended!", SendMessageOptions.DontRequireReceiver);
+            return;
+        }
+
+        Life -= Mathf.Abs(rest);
+
+        BroadcastMessage("ShowInfo", $"-{rest} LIFE", SendMessageOptions.DontRequireReceiver);
+        BroadcastMessage("GotDamageFX", SendMessageOptions.DontRequireReceiver);
+
+        if (Life < 0)
+        {
+            Life = 0;
+        }
     }
 
     public float GetLife()

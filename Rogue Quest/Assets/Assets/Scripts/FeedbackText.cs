@@ -26,8 +26,15 @@ public class FeedbackText : MonoBehaviour
         NameText.enabled = false;
     }
 
-    public void ShowInfo(string info, float time)
+    public void DestroyAllText()
     {
+        Debug.Log("Destroy Called!");
+        Destroy(gameObject);
+    }
+
+    public void ShowInfo(string info)
+    {
+        float time = 1f;
         StartCoroutine(ShowInfoAsync(info, time));
     }
 

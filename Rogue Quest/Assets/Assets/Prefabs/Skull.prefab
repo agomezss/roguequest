@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8251240401161226500}
   - component: {fileID: 8251240402869477006}
   - component: {fileID: 8261557610597748981}
+  - component: {fileID: 4893619424582707762}
   m_Layer: 14
   m_Name: Skull
   m_TagString: Enemy
@@ -303,6 +304,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f657db601d5aca4dbcf2ba989e1e596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4893619424582707762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446234120512610094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f6f8ff98a0dbb4baff093ff5fb65bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FadeFrequency: 2
+  BlinkFrequency: 0.2
 --- !u!1001 &8251240401589878285
 PrefabInstance:
   m_ObjectHideFlags: 0
