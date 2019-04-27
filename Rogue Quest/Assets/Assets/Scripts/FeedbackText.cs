@@ -56,24 +56,6 @@ public class FeedbackText : MonoBehaviour
         InitialLoad();
     }
 
-    private void Update()
-    {
-        float offsetPosY = parent.transform.position.y + 1.5f;
-        Vector3 offsetPos = new Vector3(parent.transform.position.x, offsetPosY, parent.transform.position.z);
-
-        // Calculate *screen* position (note, not a canvas/recttransform position)
-        Vector2 canvasPos;
-        
-        Vector2 screenPoint = UnityEngine.Camera.main.WorldToScreenPoint(offsetPos);
-
-        // Convert screen position to Canvas / RectTransform space <- leave camera null if Screen Space Overlay
-        var canvasRect = GetComponent<RectTransform>();
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPoint, null, out canvasPos);
-
-        // Set
-        transform.localPosition = canvasPos;
-    }
-
     private void InitialLoad()
     {
         if (StatsOrCollectibleName)
