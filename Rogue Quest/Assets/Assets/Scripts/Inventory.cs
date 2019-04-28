@@ -154,21 +154,36 @@ public class Inventory : MonoBehaviour
 
     void AttachAll()
     {
+        var newToBeAdded = new List<Collectible>();
         foreach (var item in StoredItems)
         {
-            Attach(item);
+            newToBeAdded.Add(Attach(item));
         }
 
-        Attach(MainWeapon);
-        Attach(MainShield);
-        Attach(MainRing);
-        Attach(MainClothes);
+        StoredItems.Clear();
+        StoredItems.AddRange(newToBeAdded);
+
+        if (MainWeapon)
+            MainWeapon = Attach(MainWeapon);
+
+        if (MainShield)
+            MainShield = Attach(MainShield);
+
+        if (MainRing)
+            MainRing = Attach(MainRing);
+
+        if (MainClothes)
+            MainClothes = Attach(MainClothes);
     }
 
-    void Attach(Collectible item)
+    Collectible Attach(Collectible item)
     {
-        if (item != null)
-            item.Attach(gameObject);
+        if (item == null) return null;
+
+        var instance = Instantiate(item, transform);
+        instance.transform.SetParent(transform);
+        instance.GetComponent<Collectible>().Attach(gameObject);
+        return instance;
     }
 
     void Awake()
