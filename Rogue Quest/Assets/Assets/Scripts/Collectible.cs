@@ -44,10 +44,16 @@ public class Collectible : MonoBehaviour
     {
         transform.position = pos.position;
 
+        var objectsParent = GameObject.Find("Objects");
+
+        if (objectsParent)
+            transform.SetParent(objectsParent.transform);
+
         if (col) col.enabled = true;
         Owner = null;
         Collected = false;
         OwnerIsEnemy = false;
+        Renderer.enabled = true;
 
         SendMessage("CreateText", transform, SendMessageOptions.DontRequireReceiver);
     }

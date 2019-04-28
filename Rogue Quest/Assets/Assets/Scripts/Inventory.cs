@@ -104,12 +104,7 @@ public class Inventory : MonoBehaviour
     public void Drop(Collectible item)
     {
         if (item == null) return;
-
-        // Debug.Log($"Instanciating: {item.Name}, transform: {transform}");
-
-        // var inst = Instantiate(item, transform);
         item.Deattach(transform);
-
     }
 
     public void DropGold()

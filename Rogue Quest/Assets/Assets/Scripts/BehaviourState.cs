@@ -57,7 +57,11 @@ public class BehaviourState : MonoBehaviour
         anims.Play("dead");
 
         if (rb2d)
+        {
+            rb2d.velocity = Vector3.zero;
+            rb2d.angularVelocity = 0f;
             rb2d.isKinematic = true;
+        }
 
         if(col)
             col.enabled = false;
