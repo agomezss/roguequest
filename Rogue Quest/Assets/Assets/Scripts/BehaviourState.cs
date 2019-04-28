@@ -54,7 +54,7 @@ public class BehaviourState : MonoBehaviour
     public void GetDead()
     {
         IsDead = true;
-        anims.Play("dead");
+
 
         if (rb2d)
         {
@@ -63,7 +63,7 @@ public class BehaviourState : MonoBehaviour
             rb2d.isKinematic = true;
         }
 
-        if(col)
+        if (col)
             col.enabled = false;
 
         BroadcastMessage("DropAllInventory", SendMessageOptions.DontRequireReceiver);
@@ -278,7 +278,12 @@ public class BehaviourState : MonoBehaviour
 
     void Update()
     {
-        if (IsDead) return;
+        if (IsDead)
+        {
+            anims.Play("dead");
+            return;
+        }
+
         UpdateLookingObject();
         CheckGrounded();
     }
