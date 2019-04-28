@@ -171,12 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce9eda2f98443e428f0b5f8734821e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stats: {fileID: 0}
-  Inventory: {fileID: 0}
-  anims: {fileID: 0}
-  rb: {fileID: 0}
-  col: {fileID: 0}
-  state: {fileID: 0}
 --- !u!114 &8409096801326658660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +241,8 @@ MonoBehaviour:
   ClimbingSpeed: 3
   ClimbingRepeat: 1
   ClimbAlternateScale: 1
-  Dead: []
+  Dead:
+  - {fileID: 21300010, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
   DeadSpeed: 1
   DeadRepeat: 1
   Aware: []

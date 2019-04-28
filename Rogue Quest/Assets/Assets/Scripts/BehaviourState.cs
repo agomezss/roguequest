@@ -55,6 +55,12 @@ public class BehaviourState : MonoBehaviour
     {
         IsDead = true;
         anims.Play("dead");
+
+        if (rb2d)
+            rb2d.isKinematic = true;
+
+        if(col)
+            col.enabled = false;
     }
 
     public void FlyUp()
@@ -254,7 +260,7 @@ public class BehaviourState : MonoBehaviour
             IsGrounded = false;
         }
     }
-    
+
     void Awake()
     {
         anims = GetComponent<AnimedTile>();
