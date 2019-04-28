@@ -40,6 +40,18 @@ public class Collectible : MonoBehaviour
     private SpriteRenderer Renderer;
     private BoxCollider2D col;
 
+    public void Deattach(Transform pos)
+    {
+        transform.position = pos.position;
+
+        if (col) col.enabled = true;
+        Owner = null;
+        Collected = false;
+        OwnerIsEnemy = false;
+
+        SendMessage("CreateText", transform, SendMessageOptions.DontRequireReceiver);
+    }
+
     public void Attach(GameObject owner)
     {
         if (col) col.enabled = false;
@@ -145,8 +157,8 @@ public class Collectible : MonoBehaviour
             if (Owner && Owner.transform)
             {
                 transform.position = new Vector2(Owner.transform.position.x + (Owner.transform.localScale.x / WeaponXScaleEquiped), Owner.transform.position.y + WeaponYOffsetEquiped);
-                
-                if(!OwnerIsEnemy)
+
+                if (!OwnerIsEnemy)
                     transform.localScale = new Vector2(Owner.transform.localScale.x < 0 ? -1f * Mathf.Abs(transform.localScale.x) : Mathf.Abs(transform.localScale.x), transform.localScale.y);
 
                 if (transform.rotation.eulerAngles.z != 0f)

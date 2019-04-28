@@ -103,8 +103,13 @@ public class Inventory : MonoBehaviour
 
     public void Drop(Collectible item)
     {
-        if (!item) return;
-        // TODO: Show
+        if (item == null) return;
+
+        // Debug.Log($"Instanciating: {item.Name}, transform: {transform}");
+
+        // var inst = Instantiate(item, transform);
+        item.Deattach(transform);
+
     }
 
     public void DropGold()
@@ -134,7 +139,7 @@ public class Inventory : MonoBehaviour
         return byType;
     }
 
-    public void DropAll()
+    public void DropAllInventory()
     {
         foreach (var item in StoredItems)
         {
@@ -145,7 +150,6 @@ public class Inventory : MonoBehaviour
         Drop(MainShield);
         Drop(MainRing);
         Drop(MainClothes);
-        DropGold();
     }
 
     void AttachAll()

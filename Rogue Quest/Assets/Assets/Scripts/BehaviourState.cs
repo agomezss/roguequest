@@ -61,6 +61,8 @@ public class BehaviourState : MonoBehaviour
 
         if(col)
             col.enabled = false;
+
+        BroadcastMessage("DropAllInventory", SendMessageOptions.DontRequireReceiver);
     }
 
     public void FlyUp()
