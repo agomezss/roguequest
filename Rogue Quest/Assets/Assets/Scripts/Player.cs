@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if(state.IsDead) return;
         InputDetection();
     }
 

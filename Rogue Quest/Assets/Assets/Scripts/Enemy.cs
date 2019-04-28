@@ -88,6 +88,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if(state.IsDead) return;
         InputSimulation();
         InputDetection();
     }

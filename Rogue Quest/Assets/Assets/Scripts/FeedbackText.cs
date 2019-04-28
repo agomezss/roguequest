@@ -34,7 +34,7 @@ public class FeedbackText : MonoBehaviour
 
     public void ShowInfo(string info)
     {
-        float time = 1f;
+        float time = 2f;
         StartCoroutine(ShowInfoAsync(info, time));
     }
 

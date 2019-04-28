@@ -233,7 +233,8 @@ MonoBehaviour:
   ClimbingSpeed: 3
   ClimbingRepeat: 1
   ClimbAlternateScale: 1
-  Dead: []
+  Dead:
+  - {fileID: 21300238, guid: b98eec9b868a8ec479ec8da7978e1794, type: 3}
   DeadSpeed: 1
   DeadRepeat: 1
   Aware: []

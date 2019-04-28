@@ -88,8 +88,11 @@ public class Stats : MonoBehaviour
         BroadcastMessage("ShowInfo", $"-{rest} LIFE", SendMessageOptions.DontRequireReceiver);
         BroadcastMessage("GotDamageFX", SendMessageOptions.DontRequireReceiver);
 
-        if (Life < 0)
+        if (Life <= 0)
         {
+            BroadcastMessage("ShowInfo", $"DIED!", SendMessageOptions.DontRequireReceiver);
+            BroadcastMessage("HideText", SendMessageOptions.DontRequireReceiver);
+            BroadcastMessage("GetDead", SendMessageOptions.DontRequireReceiver);
             Life = 0;
         }
     }
